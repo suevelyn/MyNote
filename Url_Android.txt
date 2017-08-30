@@ -6,3 +6,10 @@ http://bbs.pythontab.com/  --python
 http://bbs.csdn.net/forums/Java --Java
 
 http://www.java17.cn/  --Java
+
+
+https://github.com/authlete/java-oauth-server --Java Oauth2
+
+https://github.com/selakavon/spring-rest-oauth2-mongo --Java Oauth2 Mongodb
+
+https://github.com/rajithd/spring-security-oauth2-rest Java Oauth2 Mysql
