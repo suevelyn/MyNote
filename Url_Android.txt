@@ -13,3 +13,6 @@ https://github.com/authlete/java-oauth-server --Java Oauth2
 https://github.com/selakavon/spring-rest-oauth2-mongo --Java Oauth2 Mongodb
 
 https://github.com/rajithd/spring-security-oauth2-rest Java Oauth2 Mysql
+
+
+https://djangoforbeginners.com/ --python for django
