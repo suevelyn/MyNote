@@ -16,3 +16,6 @@ https://github.com/rajithd/spring-security-oauth2-rest Java Oauth2 Mysql
 
 
 https://djangoforbeginners.com/ --python for django
+
+
+http://o7planning.org/en/10605/create-a-java-shopping-cart-web-application-using-spring-mvc-and-hibernate --test web
