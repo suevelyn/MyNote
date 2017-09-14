@@ -1,6 +1,6 @@
 https://github.com/codepath/android_guides/wiki/Sample-Android-Apps
 
-//½×¾ÂÃþ//
+//Â½Ã—Â¾Ã‚ÃƒÃ¾//
 http://bbs.pythontab.com/  --python
 
 http://bbs.csdn.net/forums/Java --Java
@@ -19,3 +19,5 @@ https://djangoforbeginners.com/ --python for django
 
 
 http://o7planning.org/en/10605/create-a-java-shopping-cart-web-application-using-spring-mvc-and-hibernate --test web
+
+https://github.com/mooosu/spring-mvc-mybatis-sample --spring for mybites
