@@ -26,3 +26,4 @@ http://1-dot-strange-math-113202.appspot.com/wedding/index --My java project
 
 http://mysqltest-1176.appspot.com/api/Wed/GetFamilyByNumberType --My Api java restful
 
+https://read01.com/zh-tw/0o2QxE.html#.WcI6ubIjFpg -- MyAndroid framework
