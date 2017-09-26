@@ -29,3 +29,9 @@ http://mysqltest-1176.appspot.com/api/Wed/GetFamilyByNumberType --My Api java re
 https://read01.com/zh-tw/0o2QxE.html#.WcI6ubIjFpg -- MyAndroid framework
 
 https://regex101.com/r/cF9gX2/2 --Web express test
+
+//Lien Bot
+apply a Account --http://at.line.me/tw/  step 1
+
+
+
