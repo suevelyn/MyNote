@@ -30,6 +30,10 @@ https://read01.com/zh-tw/0o2QxE.html#.WcI6ubIjFpg -- MyAndroid framework
 
 https://regex101.com/r/cF9gX2/2 --Web express test
 
+//AIDL
+https://github.com/appium/android-apidemos
+
+
 //Lien Bot
 apply a Account --http://at.line.me/tw/  step 1 且設定(Messaging API)
 
