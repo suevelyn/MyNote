@@ -43,5 +43,7 @@ apply a Account --http://at.line.me/tw/  step 1 且設定(Messaging API)
 
 https://dashboard.heroku.com/apps step 2 server 設定
 
+https://www.youtube.com/watch?v=6Fu39V6T_G0 line 影片
+
 //HEROKU
 https://dashboard.heroku.com/apps
