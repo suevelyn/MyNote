@@ -17,6 +17,8 @@ https://github.com/fluent/fluent-logger-java -- build logger
 https://github.com/kadary/Java-Logger -- build logger
 https://www.mkyong.com/maven/how-to-create-a-jar-file-with-maven/
 https://gist.github.com/ashrithr/5624410
+https://github.com/spring-projects/spring-amqp-samples --AMQP
+
 
 //python (相關資源)
 http://bbs.pythontab.com/  --python
