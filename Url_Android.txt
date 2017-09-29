@@ -19,6 +19,11 @@ https://www.mkyong.com/maven/how-to-create-a-jar-file-with-maven/
 https://gist.github.com/ashrithr/5624410
 https://github.com/spring-projects/spring-amqp-samples --AMQP
 
+//java -EJB
+http://theopentutorials.com/examples/java-ee/ejb3/how-to-create-a-ejb-3-x-project-using-maven-in-eclipse-part-1/
+
+//java -J2EE
+
 
 //python (相關資源)
 http://bbs.pythontab.com/  --python
