@@ -1,16 +1,11 @@
-//java 資源
+//java 基本功
+https://github.com/JustinSDK/JavaSE6Tutorial/blob/master/docs/CH08.md
+
+//android 
 https://github.com/doggycoder/AndroidOpenGLDemo 圖形處理
 https://github.com/codepath/android_guides/wiki/Sample-Android-Apps
-http://bbs.csdn.net/forums/Java --Java
-http://www.java17.cn/  --Java
-https://github.com/authlete/java-oauth-server --Java Oauth2
-https://github.com/selakavon/spring-rest-oauth2-mongo --Java Oauth2 Mongodb
-https://github.com/rajithd/spring-security-oauth2-rest Java Oauth2 Mysql
-http://o7planning.org/en/10605/create-a-java-shopping-cart-web-application-using-spring-mvc-and-hibernate --test web
-https://github.com/mooosu/spring-mvc-mybatis-sample --spring for mybites
-http://1-dot-strange-math-113202.appspot.com/wedding/index --My java project
-http://mysqltest-1176.appspot.com/api/Wed/GetFamilyByNumberType --My Api java restful
 https://read01.com/zh-tw/0o2QxE.html#.WcI6ubIjFpg -- MyAndroid framework
+https://github.com/Apress/beg-android-3d-game-dev
 
 //java build jar & war info
 https://github.com/fluent/fluent-logger-java -- build logger
@@ -19,10 +14,17 @@ https://www.mkyong.com/maven/how-to-create-a-jar-file-with-maven/
 https://gist.github.com/ashrithr/5624410
 https://github.com/spring-projects/spring-amqp-samples --AMQP
 
-//java -EJB
+//java -EJB-WEB-APPLICATION-J2EE
 http://theopentutorials.com/examples/java-ee/ejb3/how-to-create-a-ejb-3-x-project-using-maven-in-eclipse-part-1/
-
-//java -J2EE
+http://mysqltest-1176.appspot.com/api/Wed/GetFamilyByNumberType --My Api java restful
+http://1-dot-strange-math-113202.appspot.com/wedding/index --My java project
+https://github.com/mooosu/spring-mvc-mybatis-sample --spring for mybites
+http://o7planning.org/en/10605/create-a-java-shopping-cart-web-application-using-spring-mvc-and-hibernate --test web
+http://bbs.csdn.net/forums/Java --Java
+http://www.java17.cn/  --Java
+https://github.com/authlete/java-oauth-server --Java Oauth2
+https://github.com/selakavon/spring-rest-oauth2-mongo --Java Oauth2 Mongodb
+https://github.com/rajithd/spring-security-oauth2-rest Java Oauth2 Mysql
 
 
 //python (相關資源)
