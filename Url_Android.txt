@@ -46,3 +46,8 @@ https://www.youtube.com/watch?v=6Fu39V6T_G0 line 影片
 https://dashboard.heroku.com/apps
 https://regex101.com/r/cF9gX2/2 --Web express test
 
+//api manager dashbord
+http://www.oschina.net/project/tag/464/backend
+http://www.nipic.com/show/15609045.html
+
+
