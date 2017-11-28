@@ -7,6 +7,7 @@ https://github.com/codepath/android_guides/wiki/Sample-Android-Apps
 https://read01.com/zh-tw/0o2QxE.html#.WcI6ubIjFpg -- MyAndroid framework
 https://github.com/Apress/beg-android-3d-game-dev
 https://github.com/opendataopen/CHYAYI-Hackathon_06
+https://bintray.com/ericchuang //發布自訂library
 
 //java build jar & war info
 https://github.com/fluent/fluent-logger-java -- build logger
