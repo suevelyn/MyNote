@@ -68,5 +68,5 @@ http://www.arthurtoday.com/2012/12/ubuntu-file-system-tree-directories.html
 https://leetcode.com/
 https://www.pinterest.com/pin/66709638210165000/?lp=true
 
-
-
+c# 架構
+http://www.cnblogs.com/artech/p/inside-asp-net-core-1.html
