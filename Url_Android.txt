@@ -70,3 +70,11 @@ https://www.pinterest.com/pin/66709638210165000/?lp=true
 
 c# 架構
 http://www.cnblogs.com/artech/p/inside-asp-net-core-1.html
+
+
+//mongodb 語法
+mongoexport --db LionExAPI_Logs --collection Lion.CoreAPI.Inc_Log_Connection201711 --out E:\mongodbJSON\test.json
+mongoexport --host dba-umongo --port 27017 --username mongoULionExApi --password "mongoULionExApi!439" --db LionExAPI_Logs --collection APIDeveloperForm_Log_ErrorHandling201711 -q "{'RequestId':'49ee1980-8d8b-45e5-a895-cacac728a22f'}"  --out E:\mongodbJSON\test2.json
+mongoexport --host dba-mongo --port 27017 --username AlmGwApiLogs --password "AlmGwApiLogs3704" --db ALMGWAPI_Logs --collection ALM.GW.Disney_Log_Connection201711  --out E:\Python\Mongo_Data\ALM_F\ALM.GW.Disney_Log_Connection201711.json
+mongoexport --host dba-mongo --port 27017 --username AlmGwApiLogs --password "AlmGwApiLogs3704" --db ALMGWAPI_Logs --collection ALM.GW.Disney_Log_Connection201711  --out E:\Python\Mongo_Data\ALM_F\ALM.GW.Disney_Log_Connection201711.txt
+mongoexport --db rest-db --collection series --out E:\Python\Mongo_Data\ALM_F\test.json
