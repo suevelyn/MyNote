@@ -78,3 +78,4 @@ mongoexport --host dba-umongo --port 27017 --username mongoULionExApi --password
 mongoexport --host dba-mongo --port 27017 --username AlmGwApiLogs --password "AlmGwApiLogs3704" --db ALMGWAPI_Logs --collection ALM.GW.Disney_Log_Connection201711  --out E:\Python\Mongo_Data\ALM_F\ALM.GW.Disney_Log_Connection201711.json
 mongoexport --host dba-mongo --port 27017 --username AlmGwApiLogs --password "AlmGwApiLogs3704" --db ALMGWAPI_Logs --collection ALM.GW.Disney_Log_Connection201711  --out E:\Python\Mongo_Data\ALM_F\ALM.GW.Disney_Log_Connection201711.txt
 mongoexport --db rest-db --collection series --out E:\Python\Mongo_Data\ALM_F\test.json
+http://blog.csdn.net/zzq900503/article/details/46414115
