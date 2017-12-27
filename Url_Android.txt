@@ -79,3 +79,19 @@ mongoexport --host dba-mongo --port 27017 --username AlmGwApiLogs --password "Al
 mongoexport --host dba-mongo --port 27017 --username AlmGwApiLogs --password "AlmGwApiLogs3704" --db ALMGWAPI_Logs --collection ALM.GW.Disney_Log_Connection201711  --out E:\Python\Mongo_Data\ALM_F\ALM.GW.Disney_Log_Connection201711.txt
 mongoexport --db rest-db --collection series --out E:\Python\Mongo_Data\ALM_F\test.json
 http://blog.csdn.net/zzq900503/article/details/46414115
+
+      //刪除 collection的方法!!
+      //   collection.dropIndex(
+      //      'RequestId_1', function(err, result){
+      //       console.log(result);
+      //   });
+
+      //   collection.dropIndex(
+      //     'CreateDateTime_-1', function(err, result){
+      //      console.log(result);
+      //  });
+
+      //  collection.dropIndex(
+      //   'ActionData_1', function(err, result){
+      //    console.log(result);
+      // });
