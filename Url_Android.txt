@@ -17,6 +17,8 @@ https://gist.github.com/ashrithr/5624410
 https://github.com/spring-projects/spring-amqp-samples --AMQP
 
 //java -EJB-WEB-APPLICATION-J2EE
+//ssm 與相關套件架構設計
+https://tw.saowen.com/a/a62051a97dd4c477a943bd4f8f0d6e4073d0cb015c286115dfe65bfbe7332ee1
 http://theopentutorials.com/examples/java-ee/ejb3/how-to-create-a-ejb-3-x-project-using-maven-in-eclipse-part-1/
 http://mysqltest-1176.appspot.com/api/Wed/GetFamilyByNumberType --My Api java restful
 http://1-dot-strange-math-113202.appspot.com/wedding/index --My java project
