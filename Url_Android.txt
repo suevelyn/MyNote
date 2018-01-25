@@ -101,3 +101,9 @@ http://blog.csdn.net/zzq900503/article/details/46414115
 //自動化文章
 http://sunmr.blogspot.tw/search?q=2016
 
+//常用快捷
+Windows + R cmd
+
+
+
+
