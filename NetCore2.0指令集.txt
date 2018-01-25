@@ -1,3 +1,6 @@
 dotnet new sln -o WebApiDemo
 dotnet new webapi -o WebApiDemo/src/WebApiDemo -lang C#
 dotnet sln WebApiDemo/WebApiDemo.sln add WebApiDemo/src/WebApiDemo/WebApiDemo.csproj
+
+
+alt + enter 加入套件
