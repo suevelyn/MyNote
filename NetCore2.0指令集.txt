@@ -4,3 +4,8 @@ dotnet sln WebApiDemo/WebApiDemo.sln add WebApiDemo/src/WebApiDemo/WebApiDemo.cs
 
 
 alt + enter 加入套件
+
+net core 1.0自訂 Unit Test 套件
+相關參考
+step1: https://www.michaelcrump.net/part5-aspnetcore/ 建立 unit test
+step2: https://www.c-sharpcorner.com/uploadfile/dacca2/fundamental-of-unit-testing-test-your-application-by-visual/ 建立相關--dll
