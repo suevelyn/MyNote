@@ -25,3 +25,6 @@ step4:建立 superuser auth table
 //TFS 指令
 反向PUSH git clone --mirror http://git.liontech.com.tw/Lion.ShaDisney.Web
 https://docs.microsoft.com/en-us/vsts/build-release/apps/aspnet/build-aspnet-4?view=vsts&tabs=vsts
+
+//core web 解析
+https://my.oschina.net/defa/blog/1617010
