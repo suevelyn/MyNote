@@ -1,1 +1,4 @@
 
+##參考網址https://blog.csdn.net/u012375924/article/details/51244485
+
+yum install gcc libffi-devel openssl-devel libxml2 libxslt-devel libxml2-devel python-devel -y
