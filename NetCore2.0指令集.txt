@@ -28,3 +28,6 @@ https://docs.microsoft.com/en-us/vsts/build-release/apps/aspnet/build-aspnet-4?v
 
 //core web 解析
 https://my.oschina.net/defa/blog/1617010
+
+powershell
+https://dotblogs.com.tw/swater111/2013/12/17/134904
