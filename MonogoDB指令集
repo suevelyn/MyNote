@@ -1,2 +1,4 @@
 https://coder.tw/?p=805  
 指定IP對外 mongod –bind_ip 127.0.0.1
+//bat to service套件
+https://medium.com/@eugen_lechner/running-multiple-ethereum-node-instances-as-a-windows-service-17460af43285
