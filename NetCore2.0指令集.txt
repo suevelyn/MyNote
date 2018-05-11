@@ -39,3 +39,11 @@ http://www.dalbll.com/Group/Topic/ASP.NET/3362
 //net widows service
 ###service delete
 https://stackoverflow.com/questions/76074/how-can-i-delete-a-service-in-windows
+
+//windows
+//devices
+https://dotblogs.com.tw/ghoseliang/2013/03/04/95113
+http://blog.darkthread.net/post-2016-10-24-powershell-admin-iis.aspx
+https://dotblogs.com.tw/stanley14/2016/10/23/195220
+
+
