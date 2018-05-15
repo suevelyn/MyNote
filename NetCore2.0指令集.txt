@@ -41,3 +41,9 @@ https://dotblogs.com.tw/stanley14/2016/10/23/195220
 
 //ngrok 內部連接外部資訊
 http://blog.alantsai.net/posts/2018/04/devtooltips-5-ngrok-allow-public-to-access-localhost-website-and-sql-server
+
+
+c# 架構
+http://www.cnblogs.com/artech/p/inside-asp-net-core-1.html
+
+
