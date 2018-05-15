@@ -32,6 +32,10 @@ https://my.oschina.net/defa/blog/1617010
 
 powershell
 https://dotblogs.com.tw/swater111/2013/12/17/134904
+New-PSSession -ComputerName iis-xxx -Credential "網域\User"
+Enter-PSSession -id 4
+
+
 
 //net core 架站 wordpress
 http://www.dalbll.com/Group/Topic/ASP.NET/3362
