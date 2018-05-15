@@ -32,37 +32,11 @@ https://github.com/rajithd/spring-security-oauth2-rest Java Oauth2 Mysql
 https://jackchan1999.github.io/2017/05/01/open/%E5%BC%80%E6%BA%90%E6%A1%86%E6%9E%B6/
 
 
-//python (相關資源)
-http://bbs.pythontab.com/  --python
-https://djangoforbeginners.com/ --python for django
-https://zhuanlan.zhihu.com/p/30034255(mongodb 爬蟲)
-https://vansnowpea.github.io/2016/09/16/%E4%BD%BF%E7%94%A8json%E5%92%8Cmongo%E8%BF%9B%E8%A1%8C%E6%9E%9C%E5%A3%B3%E7%BD%91%E5%BC%82%E6%AD%A5%E6%95%B0%E6%8D%AE%E7%9A%84%E7%88%AC%E5%8F%96/
-http://www.songluyi.com/python%E9%A1%B9%E4%B8%8B%E4%BA%92%E8%81%94%E7%BD%91%E6%8B%9B%E8%81%98%E7%9A%84%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/
-
-
 //IDE (相關)
 https://www.bbsmax.com/A/n1O5EPaJ7a/  --(快速鍵)
 
 //AIDL
 https://github.com/appium/android-apidemos
-
-//Lien Bot
-apply a Account --http://at.line.me/tw/  step 1 且設定(Messaging API)
-https://dashboard.heroku.com/apps step 2 server 設定
-https://www.youtube.com/watch?v=6Fu39V6T_G0 line 影片
-
-//HEROKU
-https://dashboard.heroku.com/apps
-https://regex101.com/r/cF9gX2/2 --Web express test
-mlab to insert mongodb
-ngrok
-
-//api manager dashbord
-http://www.oschina.net/project/tag/464/backend
-http://www.nipic.com/show/15609045.html
-
-//node js
-https://github.com/aga3134/AirPollution
 
 
 //linux
@@ -71,33 +45,6 @@ http://www.arthurtoday.com/2012/12/ubuntu-file-system-tree-directories.html
 https://leetcode.com/
 https://www.pinterest.com/pin/66709638210165000/?lp=true
 
-c# 架構
-http://www.cnblogs.com/artech/p/inside-asp-net-core-1.html
-
-
-//mongodb 語法
-mongoexport --db LionExAPI_Logs --collection Lion.CoreAPI.Inc_Log_Connection201711 --out E:\mongodbJSON\test.json
-mongoexport --host dba-umongo --port 27017 --username mongoULionExApi --password "mongoULionExApi!439" --db LionExAPI_Logs --collection APIDeveloperForm_Log_ErrorHandling201711 -q "{'RequestId':'49ee1980-8d8b-45e5-a895-cacac728a22f'}"  --out E:\mongodbJSON\test2.json
-mongoexport --host dba-mongo --port 27017 --username AlmGwApiLogs --password "AlmGwApiLogs3704" --db ALMGWAPI_Logs --collection ALM.GW.Disney_Log_Connection201711  --out E:\Python\Mongo_Data\ALM_F\ALM.GW.Disney_Log_Connection201711.json
-mongoexport --host dba-mongo --port 27017 --username AlmGwApiLogs --password "AlmGwApiLogs3704" --db ALMGWAPI_Logs --collection ALM.GW.Disney_Log_Connection201711  --out E:\Python\Mongo_Data\ALM_F\ALM.GW.Disney_Log_Connection201711.txt
-mongoexport --db rest-db --collection series --out E:\Python\Mongo_Data\ALM_F\test.json
-http://blog.csdn.net/zzq900503/article/details/46414115
-
-      //刪除 collection的方法!!
-      //   collection.dropIndex(
-      //      'RequestId_1', function(err, result){
-      //       console.log(result);
-      //   });
-
-      //   collection.dropIndex(
-      //     'CreateDateTime_-1', function(err, result){
-      //      console.log(result);
-      //  });
-
-      //  collection.dropIndex(
-      //   'ActionData_1', function(err, result){
-      //    console.log(result);
-      // });
 //自動化文章
 http://sunmr.blogspot.tw/search?q=2016
 
