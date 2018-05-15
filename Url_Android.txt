@@ -105,5 +105,6 @@ http://sunmr.blogspot.tw/search?q=2016
 Windows + R cmd
 https://dotblogs.com.tw/jgame2012/2017/03/18/150938
 
-
+//adb shell
+https://www.cnblogs.com/insist8089/p/6897037.html
 
