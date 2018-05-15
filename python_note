@@ -1,0 +1,9 @@
+//嘗試利用python 建立api
+https://read01.com/zh-tw/EKnxLJ.html#.Wr3zDmpuZpg
+step1:下載https://github.com/RajuKoushik/traveldiaries-server 範例引用自https://github.com/RajuKoushik
+step2:專案修改 diary = models.ForeignKey(Diary) => diary = models.ForeignKey(Diary, on_delete=models.CASCADE)
+step3:專案修改由於python2 to python3 print xxxxx => print(xxxxx)
+step4:建立 superuser auth table 
+      => python -m pip install djangorestframework
+      => python manage.py migrate
+      => python manage.py createsuperuser set username
