@@ -7,3 +7,12 @@ step4:建立 superuser auth table
       => python -m pip install djangorestframework
       => python manage.py migrate
       => python manage.py createsuperuser set username
+      
+      
+//python (相關資源)
+http://bbs.pythontab.com/  --python
+https://djangoforbeginners.com/ --python for django
+https://zhuanlan.zhihu.com/p/30034255(mongodb 爬蟲)
+https://vansnowpea.github.io/2016/09/16/%E4%BD%BF%E7%94%A8json%E5%92%8Cmongo%E8%BF%9B%E8%A1%8C%E6%9E%9C%E5%A3%B3%E7%BD%91%E5%BC%82%E6%AD%A5%E6%95%B0%E6%8D%AE%E7%9A%84%E7%88%AC%E5%8F%96/
+http://www.songluyi.com/python%E9%A1%B9%E4%B8%8B%E4%BA%92%E8%81%94%E7%BD%91%E6%8B%9B%E8%81%98%E7%9A%84%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/
+
