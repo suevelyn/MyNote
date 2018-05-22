@@ -5,3 +5,6 @@ yum install gcc libffi-devel openssl-devel libxml2 libxslt-devel libxml2-devel p
 
 ps1~~~
 https://ithelp.ithome.com.tw/articles/10186746
+
+install jdk by rpm
+https://linuxize.com/post/install-java-on-centos-7/
