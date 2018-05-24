@@ -46,4 +46,5 @@ http://blog.alantsai.net/posts/2018/04/devtooltips-5-ngrok-allow-public-to-acces
 c# 架構
 http://www.cnblogs.com/artech/p/inside-asp-net-core-1.html
 
-
+C# hangfire dll download
+https://github.com/HangfireIO/Hangfire/releases
