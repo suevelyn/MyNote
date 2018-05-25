@@ -48,3 +48,5 @@ http://www.cnblogs.com/artech/p/inside-asp-net-core-1.html
 
 C# hangfire dll download
 https://github.com/HangfireIO/Hangfire/releases
+
+https://blog.johnwu.cc/article/asp-net-core-filters.html
