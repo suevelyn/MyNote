@@ -36,5 +36,10 @@ https://labs.play-with-docker.com/
 Hortonworks: hadoop
 docker share kurcuel direct access 與 vm 不同
 
-container = process => port  <= loadbalse  
+container = process => port  <= loadbalse
 
+xen vmware
+
+runtime containers 
+
+write list base  5mb ~ 10mb
