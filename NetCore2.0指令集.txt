@@ -50,3 +50,8 @@ C# hangfire dll download
 https://github.com/HangfireIO/Hangfire/releases
 
 https://blog.johnwu.cc/article/asp-net-core-filters.html
+
+dotnet 相關小知識
+https://github.com/dotnet/sdk/issues/795#issuecomment-289782712
+
+
