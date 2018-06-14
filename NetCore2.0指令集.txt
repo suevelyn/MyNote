@@ -23,7 +23,7 @@ powershell
 https://dotblogs.com.tw/swater111/2013/12/17/134904
 New-PSSession -ComputerName iis-xxx -Credential "網域\User"
 Enter-PSSession -id 4
-
+https://dotblogs.com.tw/swater111/2013/12/17/134904
 
 
 //net core 架站 wordpress
