@@ -9,6 +9,11 @@ https://www.youtube.com/watch?v=IX82eeuCPIg
 (mysql -ec2 )https://www.youtube.com/watch?v=UX2U8lMlRJs
 This is for image_mysql_conncet_ec2 => (https://github.com/kikiChuang/MyNote/blob/master/MySQL_EC2_Connect.PNG)
 
+##### ec2 ftp install ######
+https://gist.github.com/gunjanpatel/37d306cd1585ece1179b
+使用前必須要sudo vim /etc/vsftpd/vsftpd.conf 改ip
+重新啟動 sudo /etc/init.d/vsftpd restart
+
 (tomcat -ec2)
 sudo service mysqld start
 https://www.youtube.com/watch?v=lCex88J-fIo
