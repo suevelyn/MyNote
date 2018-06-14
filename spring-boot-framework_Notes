@@ -13,6 +13,8 @@ This is for image_mysql_conncet_ec2 => (https://github.com/kikiChuang/MyNote/blo
 https://gist.github.com/gunjanpatel/37d306cd1585ece1179b
 使用前必須要sudo vim /etc/vsftpd/vsftpd.conf 改ip
 重新啟動 sudo /etc/init.d/vsftpd restart
+cp /home/xxxx/xxxx /var/lib/tomcat8/webapp
+
 
 (tomcat -ec2)
 sudo service mysqld start
