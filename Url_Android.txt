@@ -55,3 +55,9 @@ https://dotblogs.com.tw/jgame2012/2017/03/18/150938
 //adb shell
 https://www.cnblogs.com/insist8089/p/6897037.html
 
+//
+https://commonsware.com/Android/Android_3-6-CC.pdf
+http://www.tutorialspoint.com/android/android_tutorial.pdf
+https://android-developers.googleblog.com/2018/05/google-io-2018-whats-new-in-android.html
+https://developer.android.com/training/basics/firstapp/creating-project
+https://androidexample.com/
