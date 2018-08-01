@@ -61,3 +61,47 @@ http://www.tutorialspoint.com/android/android_tutorial.pdf
 https://android-developers.googleblog.com/2018/05/google-io-2018-whats-new-in-android.html
 https://developer.android.com/training/basics/firstapp/creating-project
 https://androidexample.com/
+
+//
+Activity--onCreate();
+
+Fragment--onAttach();
+
+Activity--onAttachFragment();
+
+Fragment--onCreateView();
+
+Fragment--onActivityCreated();
+
+Activity--onStart();
+
+Fragment--onStart();
+
+Activity--onResume();
+
+Fragment--onResume();
+
+Fragment--onPause();
+
+Activity--onPause():
+
+Fragment--onStop();
+
+Activity--onStop();
+
+Fragment--onDestroyView();
+
+Fragment--onDestroy();
+
+Fragment--onDestroyDetach();
+
+Activity--onDestroy();
+
+
+Activity: Runing 、Pause、Stopped、Restarted
+
+Service:IPC、Intent、Binder、AIDL
+
+Broadcast Receiver 
+
+Content Provider: Preferences、File、SQLite、NetWork
