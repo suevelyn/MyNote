@@ -105,3 +105,16 @@ Service:IPC、Intent、Binder、AIDL
 Broadcast Receiver 
 
 Content Provider: Preferences、File、SQLite、NetWork
+
+進程的優先級:
+
+前台进程（Foreground process） 
+可见进程（Visible process） 
+服务进程 （Service process） 
+后台进程 （Background process） 
+空进程
+
+
+
+
+
