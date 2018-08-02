@@ -161,6 +161,16 @@ https://juejin.im/entry/593109e72f301e005830cd76
 
 线程和线程池用法:
 Thread/Runnable/Callable
+FutureTask
+AsyncTask，它封装了线程池和Handler，主要为我们在子线程中更新UI提供便利。 
+HandlerThread，它是个具有消息队列的线程，可以方便我们在子线程中处理不同的事务。 
+IntentService，我们可以将它看做为HandlerThread的升级版，它是服务，优先级更高。
+如果，线程池的分类
+FixedThreadPool
+CachedThreadPool
+ScheduledThreadPool
+SingleThreadExecutor
+
 
 ANR教學:
 http://gityuan.com/2016/07/02/android-anr/
