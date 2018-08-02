@@ -135,7 +135,8 @@ ThreadLocal:保證一個線程中只包含一個looper ThreadLocalMap 映射表�
 https://www.jianshu.com/p/6b6809a64337
 
 
+Service 使用場景download
 startService()=>onCreate()->onStartCommand()->onDestroy();
 bindService()=>onCreate()->onBind()->onUnbind()->onDestroy();
-
+intentService();
 
