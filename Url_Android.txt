@@ -119,3 +119,16 @@ standard模式
 singleTop模式 
 singleTask模式 
 singleInstance模式
+
+Handler 更新UI達到線性安全的狀態
+Looper
+Handler
+MessageQueue
+
+Handler: 消息發送、消息處理 => sendMessage、handleMessage
+Message: 线程之间传递的消息，它可以在内部携带少量的信息，用于在不同线程之间交换数据。
+MessageQueue:存放所有的Handler发送的消息的队列(单链表)
+Looper:循环监听MessageQueue中是否存在消息，如果存在就会将消息取出并传递给Handler处理。
+每个线程中只有一个Looper对象。
+
+
