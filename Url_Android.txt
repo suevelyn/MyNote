@@ -76,7 +76,7 @@ AMS作用:
 调度task
 处理应用程序的Crash
 查询系统当前运行状态
-
+Binder机制的Client端，调用Server端的AMS
 
 Activity--onCreate();
 
