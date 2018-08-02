@@ -133,3 +133,9 @@ Looper:循环监听MessageQueue中是否存在消息，如果存在就会将消�
 
 ThreadLocal:保證一個線程中只包含一個looper ThreadLocalMap 映射表進行操作
 https://www.jianshu.com/p/6b6809a64337
+
+
+startService()=>onCreate()->onStartCommand()->onDestroy();
+bindService()=>onCreate()->onBind()->onUnbind()->onDestroy();
+
+
