@@ -131,4 +131,5 @@ MessageQueue:存放所有的Handler发送的消息的队列(单链表)
 Looper:循环监听MessageQueue中是否存在消息，如果存在就会将消息取出并传递给Handler处理。
 每个线程中只有一个Looper对象。
 
-
+ThreadLocal:保證一個線程中只包含一個looper ThreadLocalMap 映射表進行操作
+https://www.jianshu.com/p/6b6809a64337
