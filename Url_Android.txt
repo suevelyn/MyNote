@@ -139,6 +139,7 @@ singleTop模式
 singleTask模式 
 singleInstance模式
 
+android規定的線性安全更改ui可以接收message queue
 Handler 更新UI達到線性安全的狀態
 Looper
 Handler
@@ -154,7 +155,11 @@ ThreadLocal:保證一個線程中只包含一個looper ThreadLocalMap 映射表�
 
 HandlerThread 單線程異步
 https://www.jianshu.com/p/6b6809a64337
+线程和线程池用法:
+Thread/Runnable/Callable
 
+ANR教學:
+http://gityuan.com/2016/07/02/android-anr/
 
 Service: 使用場景download，音樂!!它可以在後台執行長時間運行操作而沒有用户界面的應用組件 
 startService()=>onCreate()->onStartCommand()->onDestroy();
