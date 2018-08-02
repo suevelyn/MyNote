@@ -158,8 +158,11 @@ bindService()=>onCreate()->onBind()->onUnbind()->onDestroy();
 intentService();
 
 Broadcast Receiver:是一種廣泛運用在應用進程之間傳輸信息的機制，通過發送Intent來傳送我們的數據
-1.同一App具有多個進程的不同組件之間的消息通信
-2.不同App之間的組件之間的消息通信
+1.同一app内部的同一组件内的消息通信（单个或多个线程之间）；
+2.同一app内部的不同组件之间的消息通信（单个进程）；
+3.同一app具有多个进程的不同组件之间的消息通信；
+4.不同app之间的组件之间消息通信；
+5.Android系统在特定情况下与App之间的消息通信。
 
 
 
