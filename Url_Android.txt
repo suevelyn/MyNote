@@ -155,6 +155,10 @@ ThreadLocal:保證一個線程中只包含一個looper ThreadLocalMap 映射表�
 
 HandlerThread 單線程異步
 https://www.jianshu.com/p/6b6809a64337
+
+線程
+https://juejin.im/entry/593109e72f301e005830cd76
+
 线程和线程池用法:
 Thread/Runnable/Callable
 
@@ -174,7 +178,6 @@ Broadcast Receiver:是一種廣泛運用在應用進程之間傳輸信息的機�
 5.Android系统在特定情况下与App之间的消息通信。
 6.Normal Broadcast、System Broadcast、Ordered broadcast
 
-線程
-https://juejin.im/entry/593109e72f301e005830cd76
+
 
 
