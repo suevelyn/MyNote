@@ -62,7 +62,13 @@ https://android-developers.googleblog.com/2018/05/google-io-2018-whats-new-in-an
 https://developer.android.com/training/basics/firstapp/creating-project
 https://androidexample.com/
 
-//
+//面試題庫
+AMS与WMS:
+Activity與WIndow:
+一个Activity包含一个Window，如果Activity没有Window，那就相当于Service
+AMS统一调度所有应用程序的Activity
+WMS控制所有Window的显示与隐藏以及要显示的位置
+
 Activity--onCreate();
 
 Fragment--onAttach();
@@ -132,11 +138,22 @@ Looper:循环监听MessageQueue中是否存在消息，如果存在就会将消�
 每个线程中只有一个Looper对象。
 
 ThreadLocal:保證一個線程中只包含一個looper ThreadLocalMap 映射表進行操作
+
+HandlerThread 單線程異步
 https://www.jianshu.com/p/6b6809a64337
 
 
-Service 使用場景download
+Service: 使用場景download，音樂!!它可以在後台執行長時間運行操作而沒有用户界面的應用組件 
 startService()=>onCreate()->onStartCommand()->onDestroy();
 bindService()=>onCreate()->onBind()->onUnbind()->onDestroy();
 intentService();
+
+Broadcast Receiver:是一種廣泛運用在應用進程之間傳輸信息的機制，通過發送Intent來傳送我們的數據
+1.同一App具有多個進程的不同組件之間的消息通信
+2.不同App之間的組件之間的消息通信
+
+
+
+
+
 
