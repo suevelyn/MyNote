@@ -114,7 +114,8 @@ Content Provider: Preferences、File、SQLite、NetWork
 后台进程 （Background process） 
 空进程
 
-Activity任務棧
-
-
-
+Activity任務棧:
+standard模式 
+singleTop模式 
+singleTask模式 
+singleInstance模式
