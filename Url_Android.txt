@@ -123,7 +123,7 @@ Service:IPC、Intent、Binder、AIDL
 
 Broadcast Receiver 
 
-Content Provider: Preferences、File、SQLite、NetWork
+Content Provider: Preferences、File、SQLite、NetWork 
 
 進程的優先級:
 
@@ -188,6 +188,29 @@ Broadcast Receiver:是一種廣泛運用在應用進程之間傳輸信息的機�
 5.Android系统在特定情况下与App之间的消息通信。
 6.Normal Broadcast、System Broadcast、Ordered broadcast
 
+Android视图工作机制按顺序分为以下三步
+measure：确定View的宽高
+layout：确定View的位置
+draw：绘制出View的形状
 
+Android视图工作机制之measure过程
+ViewGroup的measure:measureChild()
+View的measure
 
+Android视图工作机制中的重绘
+一、invalidate()和requestLayout()
+
+Android事件分发机制:
+dispatchTouchEvent：用于进行点击事件的分发
+onInterceptTouchEvent：用于进行点击事件的拦截
+onTouchEvent：用于处理点击事件
+
+android 应用程序结构是哪些:
+src 目录
+gen 目录
+R．java 文件（非常重要）
+android.jar 文件
+
+Android开发_Android数据的四种存储方式:
+SharePreference、SQLite、Content Provider和File
 
