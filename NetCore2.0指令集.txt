@@ -14,7 +14,7 @@ step3: https://stackoverflow.com/questions/42730877/net-core-when-to-use-dotnet-
 
 //TFS 指令
 反向PUSH git clone --mirror http://git.liontech.com.tw/Lion.ShaDisney.Web
-git push --marrio http://git.liontech.com.tw/Lion.ShaDisney.Web
+git push --mirror http://git.liontech.com.tw/Lion.ShaDisney.Web
 
 https://docs.microsoft.com/en-us/vsts/build-release/apps/aspnet/build-aspnet-4?view=vsts&tabs=vsts
 
