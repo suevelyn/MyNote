@@ -8,3 +8,6 @@ https://ithelp.ithome.com.tw/articles/10186746
 
 install jdk by rpm
 https://linuxize.com/post/install-java-on-centos-7/
+
+intall google chrome
+curl https://intoli.com/install-google-chrome.sh | bash
