@@ -19,3 +19,5 @@ Namespace, Class, Interface, Exception,Enum
   避免使用特殊符號，例如 "_" or "-"
 
  Ajax，Async，Filter，Html，Razor，Routing，Contraints
+ 命名規則:
+ https://ithelp.ithome.com.tw/articles/10185176
