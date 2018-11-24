@@ -1,0 +1,109 @@
+
+using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TestUrl {
+    class Program {
+        static void Main(string[] args) {
+
+            string url = "http://localhost:58630/TS0211.aspx";
+
+            CookieContainer cc =new CookieContainer();
+            //container.Add(new Uri(url), new Cookie("ASP.NET_SessionId", "35pdip4udtdqphafiumxmjhi"));
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            Uri uri = new Uri(url);
+            //WebHeaderCollection myWebHeaderCollection = request.Headers;
+            //myWebHeaderCollection.Add("Accept-Language:zh-TW");
+            //request.CookieContainer = container;
+            request.Method = "POST";
+            request.ContentType = "application/x-www-form-urlencoded";
+            request.UserAgent = "Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko";
+            request.Accept = "text/html,application/xhtml+xml,image/jxr,*/*";
+
+
+            Cookie ck1 = new Cookie("Source", "All");
+            Cookie ck2 = new Cookie("EnCodeUserID", "601F59F8C961A43E886193E3AB0B0DC2");
+            Cookie ck3 = new Cookie("_gid", "GA1.1.711532840.1542849583");
+            Cookie ck4 = new Cookie("_ga", "GA1.1.52191560.1542360392");
+            Cookie ck5 = new Cookie("Name", "SIT%u6E2C%u8A669807543");
+            Cookie ck6 = new Cookie("ASP.NET_SessionId", "35pdip4udtdqphafiumxmjhi");
+            Cookie ck7 = new Cookie("EnCodeUserInfoKey", "3D1A57CE4ECA7E7E07593A35F5DC60BC278554747279CB0B856B4D5C19809E77");
+            Cookie ck8 = new Cookie("LoginPWD", "");
+            Cookie ck9 = new Cookie("UserType", "A");
+            Cookie ck10 = new Cookie("Default_PWD", "False@");
+            Cookie ck11 = new Cookie("EnCodeStock_AID", "DD99935EEFE3592F1A0D14C6CE51258E");
+            Cookie ck12 = new Cookie("EnCodeFuture_AID", "9D6F70280604267D0E5AE75A437A3F7A");
+            Cookie ck13 = new Cookie("EnCodeDefault_AID", "924B1126A05D4D5A4BC5FA6F627620B6");
+            Cookie ck14 = new Cookie("Count", "3");
+            Cookie ck15 = new Cookie("Consent", "N");
+            Cookie ck16 = new Cookie("AIDInfo", "STOCK@6160-9807737");
+            cc.Add(uri, ck1);
+            cc.Add(uri, ck2);
+            cc.Add(uri, ck3);
+            cc.Add(uri, ck4);
+            cc.Add(uri, ck5);
+            cc.Add(uri, ck6);
+            cc.Add(uri, ck7);
+            cc.Add(uri, ck8);
+            cc.Add(uri, ck9);
+            cc.Add(uri, ck10);
+            cc.Add(uri, ck11);
+            cc.Add(uri, ck12);
+            cc.Add(uri, ck13);
+            cc.Add(uri, ck14);
+            cc.Add(uri, ck15);
+            cc.Add(uri, ck16);
+            request.CookieContainer = cc;
+
+
+            NameValueCollection postParams = System.Web.HttpUtility.ParseQueryString(string.Empty);
+            //postParams.Add("__EVENTTARGET", "");
+            //postParams.Add("__EVENTARGUMENT", "");
+            //postParams.Add("__LASTFOCUS", "");
+            //postParams.Add("__VIEWSTATE", "/wEPDwUKLTg2MjA5NzkxOGQYAQUeX19Db250cm9sc1JlcXVpcmVQb3N0QmFja0tleV9fFgEFCGJ0blF1ZXJ5gvfugnwRJfX4+tZCxdlP+o9LJTs=");
+            //postParams.Add("sUserID", "");
+            //postParams.Add("limitDate", "24");
+            //postParams.Add("defaultSDate", "2018/11/22");
+            //postParams.Add("defaultEDate", "2018/11/23");
+            //postParams.Add("dropAC", "6160-9807737");
+            //postParams.Add("QueryType", "eTrans");
+            //postParams.Add("txtSDate", "2018/11/22");
+            //postParams.Add("txtEDate", "2018/11/23");
+            //postParams.Add("__VIEWSTATEGENERATOR", "99D2D645");
+            //postParams.Add("__EVENTVALIDATION", "%2fwEdAA1ZyaFtO7Q9uUM2f9toGg11Ha4C0GPOYIGAS%2f%2bA0yfvqFIR2t4zSQfj7Bwg8x1kIWgIgPZ7Egnld19USFEzZMJW6LPSYx0BEMgyaiU0FtCg%2bc9gerqhRdWm6EkK9hQQps%2fUjvT8BaRbfjj0R16aEd597ImX5DPdnbHDShfkKYFSUxpntll5VbtkTeexE2k27a9gYT%2bwXKCznlQuhOnnxhw6dNcr875J%2fJXm9BBnRHU2MMVwEIGhC1IkvG72Yo%2bOAPjoD1J50NTVsO6vk7Zy3iszsSLuRMS7RWpuFsvstbD6aSlIZv8%3d");
+            //postParams.Add("btnQuery.x", "40");
+            //postParams.Add("btnQuery.y", "11");
+
+
+
+            //必須透過ParseQueryString()來建立NameValueCollection物件，之後.ToString()才能轉換成queryString
+
+
+            //Console.WriteLine(postParams.ToString());// 將取得"version=1.0&action=preserveCodeCheck&pCode=pCode&TxID=guid&appId=appId", key和value會自動UrlEncode
+            //要發送的字串轉為byte[] 
+            byte[] byteArray = Encoding.UTF8.GetBytes(postParams.ToString());
+            using (Stream reqStream = request.GetRequestStream()) {
+                reqStream.Write(byteArray, 0, byteArray.Length);
+            }//end using
+
+            //API回傳的字串
+            string responseStr = "";
+            //發出Request
+            using (WebResponse response = request.GetResponse()) {
+                using (StreamReader sr = new StreamReader(response.GetResponseStream(), Encoding.UTF8)) {
+                    responseStr = sr.ReadToEnd();
+                }//end using  
+            }
+
+
+            Console.Write(responseStr);//印出回傳字串
+            Console.ReadKey();//暫停畫面
+        }
+    }
+}
