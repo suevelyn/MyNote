@@ -16,3 +16,458 @@ http://www.nipic.com/show/15609045.html
 
 //node js
 https://github.com/aga3134/AirPollution
+
+function CASign(sCAID,sCAKey,myobj,pageid,locpage)
+{
+    if (checksend() == false)
+        return false;
+    
+    if(document.getElementById("btnGo") != null)
+        document.getElementById("btnGo").style.display = "none";
+    if(document.getElementById("btnEdit") != null)
+        document.getElementById("btnEdit").style.display = "none";
+    if(document.getElementById("btnCancel") != null)
+        document.getElementById("btnCancel").style.display = "none";
+        
+    var chkCA = false;
+    if(locpage == "TO0208")
+        chkCA = CASignForTO0208(sCAID,sCAKey,myobj,pageid);
+    else
+        chkCA = CASignToObj(sCAID,sCAKey,myobj,pageid);
+    
+    if(chkCA)
+        return true;
+    else
+    {
+        if(document.getElementById("btnGo") != null)
+            document.getElementById("btnGo").style.display = "";
+        if(document.getElementById("btnEdit") != null)
+            document.getElementById("btnEdit").style.display = "";
+        if(document.getElementById("btnCancel") != null)
+            document.getElementById("btnCancel").style.display = "";
+        return false;
+    }
+    //OpenCenter('CASignWindow',sURL,'610','380');
+    //return false;
+}
+function CASignToObj(sCAID,sCAKey,myobj,pageid) 
+{    
+    //if (checksend() == false)
+    //    return false;
+    
+    var str = "";
+    try
+    {
+        str = document.getElementById("HidData2Sign").value;
+    }
+    catch(e)
+    {
+        str = window.opener.document.getElementById("HidData2Sign").value;
+    }
+    
+    var sType ="";
+    try
+    {
+        if (document.getElementById("HidType") !=null)
+            sType = document.getElementById("HidType").value;
+        if(sType == "3" || sType == "6"){
+            var objQty = document.getElementById("HidTStr").value;                             
+            str = str + "欲取消" + objQty + "口";
+        }
+    }
+    catch(e)
+    {
+        if (window.opener.document.getElementById("HidType") !=null)
+            sType = window.opener.document.getElementById("HidType").value;
+        if(sType == "3" || sType == "6"){
+            var objQty = window.opener.document.getElementById("HidTStr").value;                             
+            str = str + "欲取消" + objQty + "口";
+        }
+    }
+    
+    if (sType.indexOf("-") != -1)
+    {
+        //for 證券 改量
+        if (sType.split("-")[0] == "1")
+        {
+            try
+            {
+                str=str.replace("sQty",document.getElementById("DelQty").value);
+                document.getElementById("HidData2Sign").value = str;
+            }
+            catch(e)
+            {
+                str=str.replace("sQty",window.opener.document.getElementById("DelQty").value);
+                window.opener.document.getElementById("HidData2Sign").value = str;
+            }
+        }
+    }
+
+    if(str == "")
+        return false;
+    
+	var sErrCode = "";
+	var sErrMsg = "";
+	
+	var sSignature = "";
+	var sData2Sign = "";
+	var tempSignature = "";
+	
+	sData2Sign = "x=" + str;
+	
+	try
+    {
+	    // 宣告 PKI 元件
+	    var jKit = new jrsysPKI();
+    	
+	    // 使用制式表單
+	    // 制式表單的標題，以,號區隔
+	    var contentHeader = document.getElementById("HidShowHead").value;
+	    // 制式表單內容，以,號區隔
+	    // 多筆資料的話，以;號串接
+	    var showContent = document.getElementById("HidShowText").value;
+
+	    // 指定 CN 簽章
+	    // 參數 1: 欲搜尋之CN
+	    // 參數 2: 欲搜尋之Issuer Name，可為空字串
+	    // 參數 3: 進行簽章運算的資料
+	    // 參數 4: 使用制式表單顯示
+	    // 回傳 : P7 SignedData 資料 (Hex Encode)
+
+	    // 設定 P7 簽章資料不包含本文，預設是有包含本文
+	    //jKit.signedDataWithContent = false;
+    
+	    var hexSignedData = jKit.rsaSignedDataUseCn(sCAKey, "", sData2Sign, false, contentHeader, showContent);
+	    if (hexSignedData != "") 
+	    {
+	        // PKCS#7 簽章結果
+		    // 將 hex 轉碼成 base64
+		    //var tempSignature = jKit.hexToB64(hexSignedData);
+		    var tempSignature = hexSignedData;
+		    sSignature += tempSignature + "#";
+	    }
+	    else
+	    {
+	        if(jKit.rv != 0)
+	            alert("憑證錯誤\n錯誤代碼：" + jKit.rv + "\n" + "錯誤訊息：" + showErrorCode(jKit.rv));
+	    }
+	}
+	catch(e)
+	{
+	    sSignature += "#";
+	    alert ("無法讀取憑證，請安裝憑證元件!");
+	}
+	
+    if(sSignature.length != 0)
+        sSignature = sSignature.substring(0,sSignature.length-1);
+
+    if (sSignature=="")
+      return false;
+        
+    try
+    {
+        document.getElementById("HidSignature").value = sSignature;
+    }
+    catch(e)
+    {
+        window.opener.document.getElementById("HidSignature").value = sSignature;
+    }
+    if (pageid =="0402O" && sSignature.length != 0)
+    {
+        try
+        {
+            if (window.dialogArguments.window.frames['fSend'].document.form1==undefined) return;
+            window.dialogArguments.window.frames['fSend'].document.getElementById('hidType').value="5";
+            window.dialogArguments.window.frames['fSend'].document.getElementById('hidParam').value=str;
+            window.dialogArguments.window.frames['fSend'].document.getElementById('HidsData2Sign').value=str;
+            window.dialogArguments.window.frames['fSend'].document.getElementById('HidsDataSignature').value=sSignature;
+            window.dialogArguments.window.frames['fSend'].document.form1.submit();
+        }
+        catch(e)
+        {
+            if (window.opener.window.frames['fSend'].document.form1==undefined) return;
+            window.opener.window.frames['fSend'].document.getElementById('hidType').value="5";
+            window.opener.window.frames['fSend'].document.getElementById('hidParam').value=str;
+            window.opener.window.frames['fSend'].document.getElementById('HidsData2Sign').value=str;
+            window.opener.window.frames['fSend'].document.getElementById('HidsDataSignature').value=sSignature;
+            window.opener.window.frames['fSend'].document.form1.submit();
+        }
+    }
+    
+    if (pageid =="0402C" && sSignature.length != 0)
+    {
+        try
+        {      
+            if (window.dialogArguments.window.frames['fSend'].document.form1==undefined) return;
+            window.dialogArguments.window.frames['fSend'].document.getElementById('hidType').value="6";
+            window.dialogArguments.window.frames['fSend'].document.getElementById('hidParam').value=str;
+            window.dialogArguments.window.frames['fSend'].document.getElementById('HidsData2Sign').value=str;
+            window.dialogArguments.window.frames['fSend'].document.getElementById('HidsDataSignature').value=sSignature;
+            window.dialogArguments.window.frames['fSend'].document.form1.submit();
+        }
+        catch(e)
+        {
+            if (window.opener.window.frames['fSend'].document.form1==undefined) return;
+            window.opener.window.frames['fSend'].document.getElementById('hidType').value="6";
+            window.opener.window.frames['fSend'].document.getElementById('hidParam').value=str;
+            window.opener.window.frames['fSend'].document.getElementById('HidsData2Sign').value=str;
+            window.opener.window.frames['fSend'].document.getElementById('HidsDataSignature').value=sSignature;
+            window.opener.window.frames['fSend'].document.form1.submit();
+        }
+    }
+    
+    if (typeof(Send) != 'undefined')
+      Send();
+    
+    return true;
+}
+	
+//for CA	
+function CASignCA(sCAID,sCAKey,myobj) 
+{
+    var str = document.Form1.HidData2Sign.value ;
+    //debugger;
+
+    if(str == "")
+        return true;
+    
+	
+	var sErrCode = "";
+	var sErrMsg = "";
+	
+	var sSignature = "";
+	var sData2Sign = "";
+	var tempSignature = "";
+	
+    sData2Sign = "x=" + str;
+    
+    try{
+        tempSignature = eval(myobj).SignData2(sCAID,sCAKey,sData2Sign)              
+        sErrCode = eval(myobj).GetErrorCode();
+        sErrMsg = eval(myobj).GetErrorMsg();
+         while (sErrCode != "-2" && sErrCode != "0"){//按取消鍵
+                if (sErrCode != -3)
+                    alert("憑證錯誤\n錯誤代碼：" + sErrCode + "\n" + "錯誤訊息：" + sErrMsg);
+                tempSignature = eval(myobj).SignData2(sCAID,sCAKey,sData2Sign);              
+
+                sErrCode = eval(myobj).GetErrorCode();
+                sErrMsg = eval(myobj).GetErrorMsg();                        
+        }
+        if(sErrCode == "-2"){
+        
+          window.close();
+          return false;
+          }
+        
+         sSignature += tempSignature ;
+       
+	}
+	catch(e)
+	{
+	  
+	    alert(e);
+	}
+    document.Form1.HidSignature.value = sSignature;
+    return true;
+}
+
+function CASignForTO0208(sCAID,sCAKey,myobj,pageid) 
+{
+    //if (checksend() == false)
+    //    return false;
+
+    var str = "";
+    try
+    {
+        str = document.getElementById("HidData2Sign").value;
+    }
+    catch(e)
+    {
+        str = window.opener.document.getElementById("HidData2Sign").value;
+    }
+    
+    var sType ="";
+    try
+    {
+        if (document.getElementById("HidType") !=null)
+            sType = document.getElementById("HidType").value;
+        if(sType == "3" || sType == "6"){
+            var objQty = document.getElementById("HidTStr").value;                             
+            str = str + "欲取消" + objQty + "口";
+        }
+    }
+    catch(e)
+    {
+        if (window.opener.document.getElementById("HidType") !=null)
+            sType = window.opener.document.getElementById("HidType").value;
+        if(sType == "3" || sType == "6"){
+            var objQty = window.opener.document.getElementById("HidTStr").value;                             
+            str = str + "欲取消" + objQty + "口";
+        }
+    }
+    
+    if (sType.indexOf("-") != -1)
+    {
+        //for 證券 改量
+        if (sType.split("-")[0] == "1")
+        {
+            try
+            {
+                str=str.replace("sQty",document.getElementById("DelQty").value);
+                document.getElementById("HidData2Sign").value = str;
+            }
+            catch(e)
+            {
+                str=str.replace("sQty",window.opener.document.getElementById("DelQty").value);
+                window.opener.document.getElementById("HidData2Sign").value = str;
+            }
+        }
+    }
+    
+    if(str == "")
+        return false;
+    
+	var sErrCode = "";
+	var sErrMsg = "";
+	
+	var sSignature = "";
+	var sData2Sign = "";
+	var tempSignature = "";
+	
+	sData2Sign = "x=" + str;
+	
+	try
+    {
+	    // 宣告 PKI 元件
+	    var jKit = new jrsysPKI();
+    	
+	    // 使用制式表單
+	    // 制式表單的標題，以,號區隔
+	    var contentHeader = document.getElementById("HidShowHead").value;
+	    // 制式表單內容，以,號區隔
+	    // 多筆資料的話，以;號串接
+	    var showContent = document.getElementById("HidShowText").value;
+
+	    // 指定 CN 簽章
+	    // 參數 1: 欲搜尋之CN
+	    // 參數 2: 欲搜尋之Issuer Name，可為空字串
+	    // 參數 3: 進行簽章運算的資料
+	    // 參數 4: 使用制式表單顯示
+	    // 回傳 : P7 SignedData 資料 (Hex Encode)
+
+	    // 設定 P7 簽章資料不包含本文，預設是有包含本文
+	    //jKit.signedDataWithContent = false;
+    
+	    var hexSignedData = jKit.rsaSignedDataUseCn(sCAKey, "", sData2Sign, false, contentHeader, showContent);
+	    if (hexSignedData != "") 
+	    {
+	        // PKCS#7 簽章結果
+		    // 將 hex 轉碼成 base64
+		    //var tempSignature = jKit.hexToB64(hexSignedData);
+		    var tempSignature = hexSignedData;
+		    sSignature += tempSignature + "#";
+	    }
+	    else
+	    {
+	        if(jKit.rv != 0)
+	            alert("憑證錯誤\n錯誤代碼：" + jKit.rv + "\n" + "錯誤訊息：" + showErrorCode(jKit.rv));
+	    }
+	}
+	catch(e)
+	{
+	    sSignature += "#";
+	    alert ("無法讀取憑證，請安裝憑證元件!");
+	}
+	
+    if(sSignature.length != 0)
+        sSignature = sSignature.substring(0,sSignature.length-1);
+
+    if (sSignature=="")
+      return false;
+      
+    try
+    {
+        document.getElementById("HidSignature").value = sSignature;
+    }
+    catch(e)
+    {
+        window.opener.document.getElementById("HidSignature").value = sSignature;
+    }
+    if (pageid =="0402O" && sSignature.length != 0)
+    {
+        try
+        {
+            if (window.dialogArguments.window.frames['fSend'].document.form1==undefined) return;
+            window.dialogArguments.window.frames['fSend'].document.getElementById('hidType').value="5";
+            window.dialogArguments.window.frames['fSend'].document.getElementById('hidParam').value=str;
+            window.dialogArguments.window.frames['fSend'].document.getElementById('HidsData2Sign').value=str;
+            window.dialogArguments.window.frames['fSend'].document.getElementById('HidsDataSignature').value=sSignature;
+            window.dialogArguments.window.frames['fSend'].document.form1.submit();
+        }
+        catch(e)
+        {
+            if (window.opener.window.frames['fSend'].document.form1==undefined) return;
+            window.opener.window.frames['fSend'].document.getElementById('hidType').value="5";
+            window.opener.window.frames['fSend'].document.getElementById('hidParam').value=str;
+            window.opener.window.frames['fSend'].document.getElementById('HidsData2Sign').value=str;
+            window.opener.window.frames['fSend'].document.getElementById('HidsDataSignature').value=sSignature;
+            window.opener.window.frames['fSend'].document.form1.submit();
+        }
+    }
+    
+    if (pageid =="0402C" && sSignature.length != 0)
+    {
+        try
+        {      
+            if (window.dialogArguments.window.frames['fSend'].document.form1==undefined) return;
+            window.dialogArguments.window.frames['fSend'].document.getElementById('hidType').value="6";
+            window.dialogArguments.window.frames['fSend'].document.getElementById('hidParam').value=str;
+            window.dialogArguments.window.frames['fSend'].document.getElementById('HidsData2Sign').value=str;
+            window.dialogArguments.window.frames['fSend'].document.getElementById('HidsDataSignature').value=sSignature;
+            window.dialogArguments.window.frames['fSend'].document.form1.submit();
+        }
+        catch(e)
+        {
+            if (window.opener.window.frames['fSend'].document.form1==undefined) return;
+            window.opener.window.frames['fSend'].document.getElementById('hidType').value="6";
+            window.opener.window.frames['fSend'].document.getElementById('hidParam').value=str;
+            window.opener.window.frames['fSend'].document.getElementById('HidsData2Sign').value=str;
+            window.opener.window.frames['fSend'].document.getElementById('HidsDataSignature').value=sSignature;
+            window.opener.window.frames['fSend'].document.form1.submit();
+        }
+    }
+    
+    return true;
+}
+
+function showErrorCode(ec) {
+	switch(ec) {
+		case 0:
+           return "作業成功";
+    case 8:
+           return "系統記憶體容量不足\n解決方式:\n(1)請關閉部份程式後再執行。\n(2)請重新開機再執行簽章功能";
+    case 11:
+           return "資料格式不正確";
+    case 13:
+           return "資料不正確";
+    case 24:
+           return "資料長度不正確";
+    case 50:
+           return "未支援的演算法";
+    case 122:
+           return "緩衝區不足";
+    case 160:
+           return "不正確的參數";
+    case 232:
+           return "沒有簽章內容";
+    case 1168:
+           return "找不到有效的數位憑證\n解決方式:\n(1)請把憑證備份匯入本電腦即可下單。\n(2)若電腦已重灌或損毀，且無憑證備份，請本人帶身份證及原開戶印章至任一分公司辦理憑證註請銷申請憑證密碼袋。";
+    case 1223:
+           return "使用者取消作業";
+    case 1629:
+           return "資料型態不符合";
+    default:
+           return ec;
+
+	}
+}
