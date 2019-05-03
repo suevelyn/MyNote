@@ -1,0 +1,535 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PU0105_APP.aspx.cs" Inherits="CTSWeb.PU.PU0105_APP" %>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=0">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>中國信託證券-密碼解鎖</title>
+
+    <!-- Bootstrap -->
+    <link href="css/security.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="css/jquery-confirm.css" rel="stylesheet" />
+<%-- <link href="css/bootstrap-datepicker.min.css" rel="stylesheet" />--%>
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/bootstrap.js"></script>
+<%--    <script src="js/password.js"></script>--%>
+    <script src="css/jquery-confirm.js"></script>
+<%-- <script src="js/bootstrap-datepicker.js"></script>--%>
+    <script src="js/jquery.cookie.js"></script>
+    <style type="text/css"></style>
+
+
+    <style type="text/css"></style>
+</head>
+<body>
+   <form id="form1" runat="server">
+        <input type="hidden" id="sUserID" runat="server" /><!-- 客服使用 -->
+        <input id="Hiddenu0_eOTP" type="hidden" runat="server"/>  
+        <input id="Hiddenu5_eOTP" type="hidden" runat="server"/>                     
+        <input id="Hiddenu6_eOTP" type="hidden" runat="server"/>
+        <input id="Hiddenp0_eOTP" type="hidden" runat="server"/>
+        <input id="Hiddenp1_eOTP" type="hidden" runat="server"/>
+        <input id="Hiddenp2_eOTP" type="hidden" runat="server"/>
+        <input id="Hiddenp3_eOTP" type="hidden" runat="server"/>
+        <input id="Hiddenp4_eOTP" type="hidden" runat="server"/>
+        <input id="Hiddenp5_eOTP" type="hidden" runat="server"/>
+        <input id="Hiddenp6_eOTP" type="hidden" runat="server"/>
+        <input id="Hiddenp7_eOTP" type="hidden" runat="server"/>
+
+        <input id="Hidden_Name" type="hidden" runat="server"/>
+        <input id="Hidden_Mail" type="hidden" runat="server"/>
+        <input id="Hidden_Birthday" type="hidden" runat="server"/>
+        <input id="Hidden_Mobile" type="hidden" runat="server"/>
+        <input id="Hidden_create" type="hidden" runat="server"/>
+
+
+        <div class="container-fluid">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12" style="margin: 0px 0px;">
+                            <h1 style='color:#019e97;font-weight:bold;'>密碼解鎖</h1><br>
+                        </div>
+                        <div class="col-12" style="margin: 0px 0px;">
+                            <p>
+                                <big>  
+                                    若您登入密碼輸入錯誤三次，造成帳號被鎖住，可循以下步驟進行線上解鎖。
+                                    您在本系統必須存在有效憑證，為保帳交易安全，每日僅提供三次線上解鎖服務。
+                                </big>
+                            </p>
+                        </div>
+
+
+
+                        <div class="col-12" style="margin: 0px 0px;">
+                            <div class="form-group">
+                             <label for="stock" class="text-green"><big>業務別</big></label>
+
+                              <select class="form-control input-lg" id="stock">
+                                 <option value="A">證券</option>
+                                 <option value="F">期貨</option>
+                               </select>
+                            </div>
+                        </div>
+                        <div class="col-12" style="margin: 0px 0px;">
+                           <div class="form-group">
+                              <label for="branch" class="text-green"><big>分公司</big></label>
+
+                              <select class="form-control input-lg" id="branch"></select>
+                           </div>
+                        </div>
+
+                        <div class="col-12" style="margin: 0px 0px;">
+                             <div class="form-group">
+                                 <label for="LMyidno" class="text-green"><big>身分證號碼</big></label>
+
+                                  <input type="text" class="form-control input-lg" id="Myidno" placeholder="請輸入" onchange="checkTwID(this)">
+                             </div>
+                        </div>
+
+                         <div class="col-12" style="margin: 0px 0px;">
+                              <div class="form-group">
+                                  <label for="Lmydate" class="text-green"><big>西元出生年月日</big></label>
+
+                                  <input id="mydate" type="date" class="form-control input-lg" placeholder="例:820123" onkeyup="CheckNumber('mydate',event,9)" />
+                              </div>
+                        </div>
+
+                         <div class="col-md-12 text-center" style=" margin:10px 0px;">
+                            <button type="button" id="check01" class="button-brown">取得簡訊驗證碼</button>
+                        </div>
+
+                        <div class="col-md-12 text-center" style=" margin:10px 0px;">
+                           <section id="confirm">  
+                                <p><big><b>行動電話後3碼 :</b></big><span id="PhoneNumber" class="text-blue"></span></p>
+                                <p><big><b>識別碼 :</b></big><span class="text-blue" id="Identifier"></span></p>
+                                <div class="form-group">
+                                      <label for="idno"><big>簡訊驗證碼</big></label>
+                                      <input type="text" class="form-control input-lg" id="OTP_idno" placeholder="請輸入">
+                                </div>
+                                <p class="text-danger"><big>剩餘時間:<span class="text-blue" id="txt_time"></span></big></p>
+
+                                <p class="text-danger">OTP簡訊密碼有效期為10分鐘，一天僅能取得驗證碼3次。</p>
+
+                                <div class="col-md-12 text-center" style=" margin:10px 0px;">
+                                    <button id="check02" type="button" class=" button-green">確定送出</button>
+                                </div>
+                            </section>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+             <div class="container-fluid footer">
+                  <div class="container">
+                      <div class="text-left f01">
+                           <ul>
+                               <li>中國信託證券</li>
+                               <li>地址:台北市南港區經貿二路168號3樓</li>
+                               <li>客服電話:(02)6639-2345</li>
+                               <li>客服傳真:(02)6639-2339</li>
+                               <li><button type="button" class="btn btn-info" onclick="window.open('https://www.win168.com.tw/CTSWeb/OnlineService/Online_CustomerMail.aspx', '_blank')">客服提問</button></li>
+                           </ul>
+                     </div>
+                 </div>
+             </div>
+     </form>
+</body>
+
+     <script> 
+
+         var txt_time = 70;//設定限制時間
+         var re_txt_time = txt_time;
+         var txt_number = 0;//設定限制次數
+         var Today = new Date();
+         var times = 60, flag = false, timer = null;
+
+         $(function () {
+
+             //抓取 分公司資訊 broker
+             $.ajax({
+                 type: "POST",
+                 url: "PU0105_APP.aspx/AjaxeBroker",
+                 data: '{u5:"' + $('#HiddenU5').val() + '",u6:"' + $('#HiddenU6').val() + '"}',
+                 contentType: "application/json; charset=utf-8",
+                 success: function (data) {
+                     //alert(data);
+                     var selectval = "";
+                     $.each($.parseJSON(data.d), function (idx, obj) {
+                         if ($('#stock').find(":selected").val() == "A") {
+                             if (obj.Type == "S") {
+                                 if (obj.BranchID == "6160") {
+                                     selectval += "<option value='" + obj.BranchID + "'>" + obj.BranchID + "-" + obj.BranchName + "</option>";
+                                 } else {
+                                     selectval += "<option value='" + obj.BranchID + "'>" + obj.BranchID + "-" + obj.BranchName + "分公司 </option>";
+                                 }
+                             }
+                         }
+
+                         if ($('#stock').find(":selected").val() == "F") {
+                             if (obj.Type == "F") {
+                                 if (obj.BranchID == "000") {
+                                     selectval += "<option value='" + obj.BranchID + "'>" + obj.BranchID + "-" + obj.BranchName + "</option>";
+                                 } else {
+                                     selectval += "<option value='" + obj.BranchID + "'>" + obj.BranchID + "-" + obj.BranchName + "分公司 </option>";
+                                 }
+                             }
+                         }
+                     });
+                     $('#branch').empty();
+                     $('#branch').html(selectval);
+                 },
+                 error: function (data) {
+                     alert('failed');
+                 }
+             });
+
+             //onchange 分公司資訊 broker
+             $('#stock').change(function () {
+                 $.ajax({
+                     type: "POST",
+                     url: "PU0105_APP.aspx/AjaxeBroker",
+                     data: '{u5:"' + $('#HiddenU5').val() + '",u6:"' + $('#HiddenU6').val() + '"}',
+                     contentType: "application/json; charset=utf-8",
+                     success: function (data) {
+                         // console.log($.parseJSON(data.d));
+                         var selectval = "";
+                         $.each($.parseJSON(data.d), function (idx, obj) {
+                             if ($('#stock').find(":selected").val() == "A") {
+                                 if (obj.Type == "S") {
+                                     if (obj.BranchID == "6160") {
+                                         selectval += "<option value='" + obj.BranchID + "'>" + obj.BranchID + "-" + obj.BranchName + "</option>";
+                                     } else {
+                                         selectval += "<option value='" + obj.BranchID + "'>" + obj.BranchID + "-" + obj.BranchName + "分公司 </option>";
+                                     }
+                                 }
+                             }
+
+                             if ($('#stock').find(":selected").val() == "F") {
+                                 if (obj.Type == "F") {
+                                     if (obj.BranchID == "000") {
+                                         selectval += "<option value='" + obj.BranchID + "'>" + obj.BranchID + "-" + obj.BranchName + "</option>";
+                                     } else {
+                                         selectval += "<option value='" + obj.BranchID + "'>" + obj.BranchID + "-" + obj.BranchName + "分公司 </option>";
+                                     }
+                                 }
+                             }
+                         });
+                         $('#branch').empty();
+                         $('#branch').html(selectval);
+                     },
+                     error: function (data) {
+                         alert('failed');
+                     }
+                 });
+             });
+
+             // 獲取驗證碼
+             $("#check01").click(function (event) {
+
+                 if ($('#Myidno').val() == '' || $('#Myidno').val() == null) {
+                     $.dialog({
+                         title: '提示訊息',
+                         content: '【身分證號碼不得為空，請重新輸入】',
+                     });
+
+                 }
+                 else if ($('#mydate').val() == '' || $('#mydate').val() == null) {
+                     $.dialog({
+                         title: '提示訊息',
+                         content: '【西元出生年月日不得為空，請重新輸入】',
+                     });
+
+                 }
+                 else {
+
+                     timer = setInterval(function () {
+                         
+                         if (times <= 0) {
+                             $('#txt_time').text(times);
+                             clearInterval(timer);
+                             times = 60;
+                            
+                         } else {
+                             times--;
+                             $('#txt_time').text(times);
+                             $('#check01').attr("disabled", true);
+                         }
+                         console.log(times)
+                     }, 1000)
+
+
+
+                     $.ajax({
+                         type: "POST",
+                         url: "PU0105_APP.aspx/AjaxQueryAccountCheck",
+                         data: '{u1:"' + $('#Myidno').val() + '",u5:"' + $('#Hiddenu5_eOTP').val() + '",u6:"' + $('#Hiddenu6_eOTP').val() + '",p1:"' + $('#stock').find(":selected").val() + '",p2:"' + $('#branch').find(":selected").val() + '"}',
+                         contentType: "application/json; charset=utf-8",
+                         success: function (data) {
+                             var result = JSON.parse(data.d);
+                             if (result[0].Name != "") {
+                                 //設定初始值
+                                 $('#Hidden_Name').val(result[0].Name);
+                                 $('#Hidden_Mail').val(result[0].Mail);
+                                 $('#Hidden_Birthday').val(result[0].Birthday);
+                                 $('#Hidden_Mobile').val(result[0].Mobile);
+
+                                 //console.log(localStorage.getItem('txt_number'));
+
+                                 //if (txt_number >= 3) {
+                                 //    document.getElementById("check01").disabled = true;
+                                 //} else {
+                                 //    $("#confirm").show("slow");
+                                 //}
+
+                                 //抓取 eOTP.aspx? 個人資訊
+
+                                 //var retrievedObject = localStorage.getItem('testObject');
+                                 //console.log(retrievedObject);
+
+                                 $("#confirm").show("slow");
+                                 $.ajax({
+                                     type: "POST",
+                                     url: "PU0105_APP.aspx/AjaxeOTP",
+                                     data: '{u0:"' + $('#Hiddenu0_eOTP').val() + '",u5:"' + $('#Hiddenu5_eOTP').val() + '",u6:"' + $('#Hiddenu6_eOTP').val() + '",p0:"' + "U" + '",p1:"' + $('#Hiddenp1_eOTP').val() + '",p2:"' + $('#Hiddenp2_eOTP').val() + '",p3:"' + $('#Hiddenp3_eOTP').val() + '",p4:"' + "" + '",p5:"' + "" + '",p6:"' + "" + '",p7:"' + $('#Hiddenp7_eOTP').val() + '"}',
+                                     contentType: "application/json; charset=utf-8",
+                                     success: function (data) {
+                                         var result = JSON.parse(data.d);
+                                         if (result[0].EXMSG == "" && result[0].TOKEN != "") {
+                                             $('#Hiddenp6_eOTP').val(result[0].TOKEN);
+                                             $('#PhoneNumber').text($('#Hiddenp2_eOTP').val().substr($('#Hiddenp2_eOTP').val().length - 3, 3));
+                                             $('#Identifier').text(result[0].KEYCODE);
+                                         } else {
+                                             $.dialog({
+                                                 title: '提示訊息',
+                                                 content: '【未獲取OTP驗證資料，請重新輸入】',
+                                             });
+                                         }
+                                     },
+                                     error: function (data) {
+                                         alert('failed');
+                                     }
+                                 });
+
+
+
+                             } else {
+                                 $('#Myidno').val('');
+                                 $('#mydate').val('');
+                                 $('#Hidden_Name').val('');
+                                 $('#Hidden_Mail').val('');
+                                 $('#Hidden_Birthday').val('');
+                                 $('#Hidden_Mobile').val('');
+                                 $.dialog({
+                                     title: '提示訊息',
+                                     content: '【獲取不到使用人資料，請重新輸入】',
+                                 });
+                             }
+
+                         },
+                         error: function (data) {
+                             alert('failed');
+                         }
+                     });
+                 }
+
+             });
+
+             //
+             $("#check02").click(function (event) {
+
+                 if ($('#OTP_idno').val() != "" && $('#Hiddenp6_eOTP').val() != "") {
+                     //抓取 eOTP.aspx? 個人資訊
+                     $.ajax({
+                         type: "POST",
+                         url: "PU0105_APP.aspx/AjaxeOTP",
+                         data: '{u0:"' + $('#Hiddenu0_eOTP').val() + '",u5:"' + $('#Hiddenu5_eOTP').val() + '",u6:"' + $('#Hiddenu6_eOTP').val() + '",p0:"' + "I" + '",p1:"' + $('#Hiddenp1_eOTP').val() + '",p2:"' + $('#Hiddenp2_eOTP').val() + '",p3:"' + "N" + '",p4:"' + "" + '",p5:"' + $('#OTP_idno').val() + '",p6:"' + $('#Hiddenp6_eOTP').val() + '",p7:"' + $('#Hiddenp7_eOTP').val() + '"}',
+                         contentType: "application/json; charset=utf-8",
+                         success: function (data) {
+                             var result = JSON.parse(data.d);
+                             if (result[0].IsPass == "Y") {
+                                 var idno = $('#Myidno').val();
+                                 //console.log(idno);
+                                 var AccountType = ""
+                                 if ($('#stock').find(":selected").val() == "A") {
+                                     AccountType = "S";
+                                 } else {
+                                     AccountType = "F";
+                                 }
+
+                                 $.ajax({
+                                     type: "POST",
+                                     url: "PU0105_APP.aspx/AjaxePwdUnlock",
+                                     data: '{u0:"' + $('#Hiddenu0_eOTP').val() + '",u1:"' + idno + '",u5:"' + $('#Hiddenu5_eOTP').val() + '",u6:"' + $('#Hiddenu6_eOTP').val() + '",p1:"' + AccountType + '",p2:"' + "0" + '",p3:"' + $('#Hidden_Name').val() + '"}',
+                                     contentType: "application/json; charset=utf-8",
+                                     success: function (data) {
+                                         var result = JSON.parse(data.d);
+                                         if (result[0].Result == "Y") {
+                                             $("#confirm").hide("slow");
+                                             $.dialog({
+                                                 title: '提示訊息',
+                                                 content: '【已解鎖完成】',
+                                             });
+                                             //清空
+                                             $('#Myidno').val('');
+                                             $('#mydate').val('');
+                                             $('#OTP_idno').val('');
+                                         } else {
+                                             $.dialog({
+                                                 title: '提示訊息',
+                                                 content: '【' + result[0].Msg + '】',
+                                             });
+                                             $("#confirm").hide("slow");
+                                             $('#Myidno').val('');
+                                             $('#mydate').val('');
+                                             $('#OTP_idno').val('');
+                                         }
+                                     },
+                                     error: function (data) {
+                                         alert('failed');
+                                     }
+                                 });
+                             }
+                         },
+                         error: function (data) {
+                             alert('failed');
+                         }
+                     });
+                 }
+
+             });
+
+
+         });
+
+
+
+         //**************************************
+         // 台灣身份證檢查簡短版 for Javascript
+         //**************************************
+         function checkTwID(sel) {
+             var id = sel.value;
+             console.log(sel.id);
+             //建立字母分數陣列(A~Z)
+             var city = new Array(
+                  1, 10, 19, 28, 37, 46, 55, 64, 39, 73, 82, 2, 11,
+                 20, 48, 29, 38, 47, 56, 65, 74, 83, 21, 3, 12, 30
+             )
+             id = id.toUpperCase();
+             // 使用「正規表達式」檢驗格式
+             if (id.search(/^[A-Z](1|2)\d{8}$/i) == -1) {
+                 //alert('基本格式錯誤');
+                 $.dialog({
+                     title: '提示訊息',
+                     content: '【身份證格式錯誤，請重新輸入】',
+                 });
+
+                 $('#' + sel.id).val('');
+                 $('#' + sel.id).focus();
+                 return false;
+             } else {
+
+                 //將字串分割為陣列(IE必需這麼做才不會出錯)
+                 id = id.split('');
+                 //計算總分
+                 var total = city[id[0].charCodeAt(0) - 65];
+                 for (var i = 1; i <= 8; i++) {
+                     total += eval(id[i]) * (9 - i);
+                 }
+                 //補上檢查碼(最後一碼)
+                 total += eval(id[9]);
+                 //檢查比對碼(餘數應為0);
+                 return ((total % 10 == 0));
+             }
+         }
+
+
+
+         //判斷 民國
+         function CheckNumber(Id, event, number) {
+             console.log("測試id" + Id + "事件" + event);
+             var ID = "#" + Id;
+             if ($("#ConditionDrop").val() != "0" && Id == "Inputconditions" && $(ID).val().length == 1 && $(ID).val().charAt(0) == "-") {
+             }
+             else {
+                 if ($(ID).val() == "." || $(ID).val() == "-." ||
+                     $(ID).val().split('.').length != 2 || $(ID).val().substring($(ID).val().length - 1) != '.') {
+                     if (isNaN(parseFloat($(ID).val().substring($(ID).val().length - 1)))) {
+                         $(ID).val($(ID).val().slice(0, -1));
+                     }
+                 }
+                 console.log(number);
+                 console.log($(ID).val().length);
+                 if ($(ID).val().length >= number) {
+                     $(ID).val('');
+                 }
+             }
+
+         }
+
+
+         function showTime() {
+            
+
+
+             //$('#txt_time').text(formatSeconds(txt_time));
+             //if (txt_time == 0) {
+             //    $("#confirm").hide("slow");
+             //    txt_time = re_txt_time;
+             //} else {
+             //    txt_time -= 1;
+             //    setTimeout("showTime()", 1000);
+             //}
+             //var myvalue = Today.getFullYear() + "/" + (Today.getMonth() + 1) + "/" + Today.getDate();
+             ////console.log(myvalue);
+             //var testObject = { 'time': myvalue, 'value': txt_number };
+             //localStorage.setItem('testObject', JSON.stringify(testObject));
+         }
+
+
+         function formatSeconds(value) {
+             var secondTime = parseInt(value);// 秒
+             var minuteTime = 0;// 分
+             var hourTime = 0;// 小时
+             if(secondTime > 60) {//如果秒数大于60，将秒数转换成整数
+                 //获取分钟，除以60取整数，得到整数分钟
+                 minuteTime = parseInt(secondTime / 60);
+                 //获取秒数，秒数取佘，得到整数秒数
+                 secondTime = parseInt(secondTime % 60);
+                 //如果分钟大于60，将分钟转换成小时
+                 if(minuteTime > 60) {
+                     //获取小时，获取分钟除以60，得到整数小时
+                     hourTime = parseInt(minuteTime / 60);
+                     //获取小时后取佘的分，获取分钟除以60取佘的分
+                     minuteTime = parseInt(minuteTime % 60);
+                 }
+             }
+             var result = "" + parseInt(secondTime) + "秒";
+
+             if(minuteTime > 0) {
+                 result = "" + parseInt(minuteTime) + "分" + result;
+             }
+             if(hourTime > 0) {
+                 result = "" + parseInt(hourTime) + "小时" + result;
+             }
+             return result;
+         }
+
+
+         Date.prototype.yyyymmdd = function () {
+
+             var yyyy = this.getFullYear().toString();
+             var mm = (this.getMonth() + 1).toString(); // getMonth() is zero-based         
+             var dd = this.getDate().toString();
+
+             return yyyy + '/' + (mm[1] ? mm : "0" + mm[0]) + '/' + (dd[1] ? dd : "0" + dd[0]);
+         };
+
+     </script>
+
+</html>
