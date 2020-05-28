@@ -27,3 +27,11 @@ HealthChecksBuilderAddCheckExtensions --AddHealthChecks Default
 
 
 區分中間曾
+HealthCheckApplicationBuilderExtensions middleware擴充UseHealthChecks -?MapWhen<HealthCheckMiddleware>
+HealthCheckEndpointRouteBuilderExtensions Endpoint middleware擴充UseHealthChecks -?MapWhen<HealthCheckMiddleware>
+
+HealthCheckMiddleware
+
+
+
+
