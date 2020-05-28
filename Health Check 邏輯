@@ -1,0 +1,29 @@
+區分註冊
+abstraction
+IHealthCheck ---給使用者擴充
+HealthCheckResult ---使用者擴充固定回傳格式
+HealthStatus ---區分健康等級
+IHealthCheckPublish ---定期執行
+HealthCheckRegistration ---擴充實作IHealthCheck參數
+HealthCheckContext 存取 HealthCheckRegistration
+HealthReport ---回傳報告
+HelathReportEntry ---report子集合
+
+
+Health 註冊實作
+IHealthChecksBuilder ---註冊IServiceCollection 擴展
+HealthChecksBuilder ---實作HealthCheckRegistration 單一個註冊
+HealthCheckServiceOptions ----IHealthCheck HealthCheckRegistration 多個註冊到 
+HealthChecksService ---實作Default abstract
+DefaultHealthCheckService ---實作Default
+DelegateHealthCheck ---實作Default
+HealthCheckPublisherHostedService ---IHostedService
+HealthCheckPublisherOptions ---重新更新 30秒
+HealthCheckLogScope ---紀錄log
+
+HealthCheckServiceCollectionExtensions --AddCheck 擴充
+HealthChecksBuilderDelegateExtensions --AddCheck 擴充
+HealthChecksBuilderAddCheckExtensions --AddHealthChecks Default
+
+
+區分中間曾
