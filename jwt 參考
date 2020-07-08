@@ -7,3 +7,29 @@ https://dotblogs.com.tw/yc421206/2019/01/07/authentication_via_jwt-dotnet
 https://github.com/oneal32xx/JWT/tree/master/JwtTest/Jwt
 
 https://dotnetcoretutorials.com/2020/01/15/creating-and-validating-jwt-tokens-in-asp-net-core/
+
+
+
+        [HttpPost]
+        public ActionResult Index(LoginViewModel model)
+        {
+            HttpCookie cookie = new HttpCookie("search");
+            cookie.Values["dep_name"] = "test";
+            cookie.Expires = DateTime.Now.AddDays(1);
+            Response.Cookies.Add(cookie);
+            return Redirect("http://localhost:53344");
+        }
+        
+   private readonly IHttpContextAccessor _httpContextAccessor;
+
+        public HomeController(ILogger<HomeController> logger, IHttpContextAccessor httpContextAccessor)
+        {
+            _logger = logger;
+            _httpContextAccessor = httpContextAccessor;
+        }
+
+        public IActionResult Index()
+        {
+            string cookieValueFromContext = _httpContextAccessor.HttpContext.Request.Cookies["search"];
+            return View();
+        }
