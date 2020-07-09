@@ -33,3 +33,10 @@ https://dotnetcoretutorials.com/2020/01/15/creating-and-validating-jwt-tokens-in
             string cookieValueFromContext = _httpContextAccessor.HttpContext.Request.Cookies["search"];
             return View();
         }
+        
+        
+不要存放敏感資料在 Token 裡
+Payload 中的 exp 時效不要設定太長
+如果擔心 replay attacks 可以多宣告 jti, exp
+開啟 Http only 預防 XSS 攻擊
+在你的 Application 應用層中增加黑名單機制，必要的時候可以進行 Block 做阻擋 (這是針對掉 Token 被第三方使用竊取的的手動防禦)
