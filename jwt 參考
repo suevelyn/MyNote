@@ -14,6 +14,8 @@ https://jasonwatmore.com/post/2020/05/25/aspnet-core-3-api-jwt-authentication-wi
 
 https://www.cnblogs.com/liuww/p/12177272.html
 
+https://blog.csdn.net/sD7O95O/article/details/102546729
+
         [HttpPost]
         public ActionResult Index(LoginViewModel model)
         {
