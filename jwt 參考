@@ -12,6 +12,8 @@ https://iter01.com/429830.html
 
 https://jasonwatmore.com/post/2020/05/25/aspnet-core-3-api-jwt-authentication-with-refresh-tokens
 
+https://www.cnblogs.com/liuww/p/12177272.html
+
         [HttpPost]
         public ActionResult Index(LoginViewModel model)
         {
