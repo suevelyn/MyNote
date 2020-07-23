@@ -20,6 +20,8 @@ https://github.com/aloji/JwtSecurity/blob/master/src/Aloji.JwtSecurity/Services/
 
 https://github.com/MartinStengard/ASPNET-Core2.0-Identity-and-JWT-authentication/blob/master/IdentityAndJwtAuthentication.Mvc/Controllers/AccountController.cs
 
+https://github.com/shammelburg/CoreIdentity/tree/master/CoreIdentity.API/Middleware
+
         [HttpPost]
         public ActionResult Index(LoginViewModel model)
         {
