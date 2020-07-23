@@ -22,6 +22,8 @@ https://github.com/MartinStengard/ASPNET-Core2.0-Identity-and-JWT-authentication
 
 https://github.com/shammelburg/CoreIdentity/tree/master/CoreIdentity.API/Middleware
 
+https://github.com/19balazs86/Playing-with-JWT-Authentication/blob/master/Playing_with_JWT/Playing_with_JWT/TokenAuthenticationFactory.cs
+
         [HttpPost]
         public ActionResult Index(LoginViewModel model)
         {
