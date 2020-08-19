@@ -49,3 +49,32 @@ https://kubernetes.io/zh/docs/setup/production-environment/tools/kubeadm/install
 https://blog.csdn.net/qq_21816375/article/details/81273201
 kubeadm init phase kubelet-start
 https://www.cnblogs.com/primadonna/p/11359476.html
+
+
+[kubernetes]
+name=Kubernetes
+baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
+enabled=1
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+
+yum install -y kubeadm kubelet kubectl
+setenforce 0
+sed -i 's/^SELINUX=.*/SELINUX=disabled/' /etc/selinux/config
+swapoff -a
+sed -i 's/.*swap.*/#&/' /etc/fstab
+systemctl enable kubelet
+systemctl start kubelet
+systemctl status -l kubelet.service
+systemctl daemon-reload
+systemctl restart kubelet.service
+systemctl status -l kubelet.service
+journalctl -xefu kubelet
+
+kubeadm init phase kubelet-start
+kubeadm init
+kubectl get pods --namespace=kube-system
+
+
+
