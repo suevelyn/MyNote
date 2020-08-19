@@ -46,3 +46,6 @@ https://www.uyuni-project.org/uyuni-docs/uyuni/administration/monitoring.html
 systemctl status -l kubelet.service
 
 https://kubernetes.io/zh/docs/setup/production-environment/tools/kubeadm/install-kubeadm/
+https://blog.csdn.net/qq_21816375/article/details/81273201
+kubeadm init phase kubelet-start
+
