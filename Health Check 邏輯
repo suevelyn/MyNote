@@ -44,3 +44,5 @@ https://ithelp.ithome.com.tw/articles/10206253
 Prometheus and Grafana 格式說明
 https://www.uyuni-project.org/uyuni-docs/uyuni/administration/monitoring.html
 systemctl status -l kubelet.service
+
+https://kubernetes.io/zh/docs/setup/production-environment/tools/kubeadm/install-kubeadm/
