@@ -50,6 +50,8 @@ https://blog.csdn.net/qq_21816375/article/details/81273201
 kubeadm init phase kubelet-start
 https://www.cnblogs.com/primadonna/p/11359476.html
 https://www.cnblogs.com/horizonli/p/10855666.html
+https://phoenixnap.com/kb/how-to-install-kubernetes-on-centos
+
 
 [kubernetes]
 name=Kubernetes
