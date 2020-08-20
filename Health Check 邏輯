@@ -41,6 +41,8 @@ https://ithelp.ithome.com.tw/articles/10206253
 
 1qk2wi3ek4ri@gmail.com
 
+systemctl enable docker
+
 Prometheus and Grafana 格式說明
 https://www.uyuni-project.org/uyuni-docs/uyuni/administration/monitoring.html
 systemctl status -l kubelet.service
