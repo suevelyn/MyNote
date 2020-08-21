@@ -110,7 +110,7 @@ sudo sysctl --system
 
 sudo systemctl enable --now kubelet
 
-kubeadm init --pod-network-cidr=10.244.0.0/16
+kubeadm init --pod-network-cidr=172.31.0.0/16
 
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
