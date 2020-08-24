@@ -152,7 +152,10 @@ mkdir -p $HOME/.kube
 
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 
+sudo snap install helm --classic
 
+$ echo 'export PATH=$PATH:/snap/bin' >> ~/.bashrc
+$ source ~/.bashrc
 
 
 
