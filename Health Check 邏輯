@@ -124,4 +124,35 @@ kubeadm token create --print-join-command
 get pod -n kube-system -l k8s-app=kube-dns
 rm -rf $HOME/.kube
 
+
 kubectl get cs
+
+##############ubuntu##################################
+sudo apt-get update
+sudo apt-get install docker.io
+
+sudo apt-get update && sudo apt-get install -y apt-transport-https curl
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+cat <<EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
+deb https://apt.kubernetes.io/ kubernetes-xenial main
+EOF
+sudo apt-get update
+sudo apt-get install -y kubelet kubeadm kubectl
+sudo apt-mark hold kubelet kubeadm kubectl
+
+kubeadm init --apiserver-advertise-address=172.31.40.255 --pod-network-cidr=192.168.0.0/16 --ignore-preflight-errors=NumCPU
+
+
+kubeadm join 172.31.40.255:6443 --token 1x4q5o.ofuzgns95h94iuvr \
+    --discovery-token-ca-cert-hash sha256:9828df451588e9556a6d8a0255e0cb2b397bcc16ef834fdb8800707459efc199 
+
+mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+
+
+
+
+
