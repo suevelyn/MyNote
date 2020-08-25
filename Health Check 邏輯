@@ -150,7 +150,7 @@ kubeadm join 172.31.40.255:6443 --token 1x4q5o.ofuzgns95h94iuvr \
   sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
   sudo chown $(id -u):$(id -g) $HOME/.kube/config
 sysctl net.bridge.bridge-nf-call-iptables=1
-  
+  iptables -P FORWARD ACCEPT
 
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 kubectl apply -f https://raw.githubusercontent.com/cloudnativelabs/kube-router/master/daemonset/kubeadm-kuberouter.yaml
