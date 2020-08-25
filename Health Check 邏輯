@@ -157,6 +157,7 @@ kubectl apply -f https://raw.githubusercontent.com/cloudnativelabs/kube-router/m
 kubectl get pods --namespace=kube-system
 
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta8/aio/deploy/recommended.yaml
+wget https://raw.githubusercontent.com/kubernetes/dashboard/v1.10.1/src/deploy/alternative/kubernetes-dashboard.yaml
 
 https://13.231.41.227:6443/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!/login
 
