@@ -129,7 +129,7 @@ kubectl get cs
 
 ##############ubuntu##################################
 sudo apt-get update
-sudo apt-get install docker.io
+sudo apt-get install docker.io -y
 
 sudo apt-get update && sudo apt-get install -y apt-transport-https curl
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
@@ -156,8 +156,11 @@ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documen
 kubectl apply -f https://raw.githubusercontent.com/cloudnativelabs/kube-router/master/daemonset/kubeadm-kuberouter.yaml
 kubectl get pods --namespace=kube-system
 
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta8/aio/deploy/recommended.yaml
+
+
 ###############################prometheus###############################################
-curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 > get_helm.sh
 chmod 700 get_helm.sh
 ./get_helm.sh
 
