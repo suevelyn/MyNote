@@ -147,10 +147,13 @@ kubeadm join 172.31.40.255:6443 --token 1x4q5o.ofuzgns95h94iuvr \
     --discovery-token-ca-cert-hash sha256:9828df451588e9556a6d8a0255e0cb2b397bcc16ef834fdb8800707459efc199 
 
 mkdir -p $HOME/.kube
-  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/con
+  
 
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+kubectl apply -f https://raw.githubusercontent.com/cloudnativelabs/kube-router/master/daemonset/kubeadm-kuberouter.yaml
+
 
 ###############################prometheus###############################################
 curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
