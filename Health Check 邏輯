@@ -175,6 +175,7 @@ spec:
   selector:
     k8s-app: kubernetes-dashboard
 
+kubectl create -f kubernetes-dashboard.yaml
 
 
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta8/aio/deploy/recommended.yaml
