@@ -181,21 +181,12 @@ spec:
   selector:
     k8s-app: kubernetes-dashboard
 
-apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
-metadata:
-  name: kubernetes-dashboard-minimal
-  namespace: kube-system
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: cluster-admin
-subjects:
-- kind: ServiceAccount
-  name: kubernetes-dashboard
-  namespace: kube-system
-
 kubectl create -f kubernetes-dashboard.yaml
+kubectl -n kube-system get secret|grep eks-admin
+
+########################create admin.yaml#############################################
+https://blog.yowko.com/kubespray-kubernetes-dashboard/
+
 kubectl get svc kubernetes-dashboard -n kube-system
 
 https://52.195.19.119:31986/#!/login
