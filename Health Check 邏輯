@@ -196,6 +196,7 @@ subjects:
   namespace: kube-system
 
 kubectl create -f kubernetes-dashboard.yaml
+kubectl get svc kubernetes-dashboard -n kube-system
 
 https://52.195.19.119:31986/#!/login
 
