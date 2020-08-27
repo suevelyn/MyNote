@@ -181,6 +181,9 @@ spec:
   selector:
     k8s-app: kubernetes-dashboard
 
+kubectl create -f kubernetes-dashboard.yaml
+kubectl get svc kubernetes-dashboard -n kube-system
+
 cat > eks-admin-service-account.yaml << EOF
 apiVersion: v1
 kind: ServiceAccount
@@ -204,16 +207,14 @@ EOF
 
 cat eks-admin-service-account.yaml
 kubectl apply -f eks-admin-service-account.yaml
-
-kubectl create -f kubernetes-dashboard.yaml
 kubectl -n kube-system get secret|grep eks-admin
-
+kubectl -n kube-system get secret admin-token-h2dxb -o jsonpath={.data.token}|base64 -d
 
 
 ########################create admin.yaml#############################################
 https://blog.yowko.com/kubespray-kubernetes-dashboard/
 
-kubectl get svc kubernetes-dashboard -n kube-system
+
 
 https://52.195.19.119:31986/#!/login
 
