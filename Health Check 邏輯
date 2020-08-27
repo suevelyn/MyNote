@@ -214,7 +214,7 @@ cat eks-admin-service-account.yaml
 kubectl apply -f eks-admin-service-account.yaml
 kubectl -n kube-system get secret|grep eks-admin
 kubectl -n kube-system get secret admin-token-h2dxb -o jsonpath={.data.token}|base64 -d
-
+https://www.youtube.com/watch?v=CmPdyvgmw-A
 
 ########################create admin.yaml#############################################
 https://blog.yowko.com/kubespray-kubernetes-dashboard/
