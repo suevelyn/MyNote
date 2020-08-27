@@ -205,6 +205,11 @@ subjects:
   namespace: kube-system
 EOF
 
+kubectl create serviceaccount dashboard-admin-sa
+kubectl create clusterrolebinding dashboard-admin-sa --clusterrole=cluster-admin --serviceaccount=default:dashboard-admin-sa
+kubectl get secrets
+kubectl describe secret dashboard-admin-sa-token-kw7vn
+
 cat eks-admin-service-account.yaml
 kubectl apply -f eks-admin-service-account.yaml
 kubectl -n kube-system get secret|grep eks-admin
