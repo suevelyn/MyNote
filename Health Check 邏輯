@@ -250,5 +250,6 @@ helm install prometheus stable/prometheus-operator
 
 helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 
-
+##############################docker 語法####################################
+netstat -anpt
 
