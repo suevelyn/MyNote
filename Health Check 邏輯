@@ -253,3 +253,11 @@ helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 ##############################docker 語法####################################
 netstat -anpt
 https://www.cnblogs.com/xiao987334176/p/9930517.html
+
+####################################golang###################################
+https://www.opencli.com/linux/ubuntu-install-golang-compile-helloworld
+https://ithelp.ithome.com.tw/articles/10186187
+
+
+
+
