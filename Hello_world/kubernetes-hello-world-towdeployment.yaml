@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blue-nginx
+  namespace: hello-world
+spec:
+  selector:
+    matchLabels:
+      app: blue-nginx
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: blue-nginx
+    spec:
+      containers:
+        - name: nginx
+          image: hcwxd/blue-whale
+          ports:
+            - containerPort: 3000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: purple-nginx
+  namespace: hello-world
+spec:
+  selector:
+    matchLabels:
+      app: purple-nginx
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: purple-nginx
+    spec:
+      containers:
+        - name: nginx
+          image: hcwxd/purple-whale
+          ports:
+            - containerPort: 3000
