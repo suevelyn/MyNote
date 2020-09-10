@@ -277,12 +277,13 @@ https://michaelchen.tech/golang-programming/build-development-environment/
 (11) sudo apt-get install -y nodejs
 (12)node --version
 (13)sudo apt-get install build-essential
-mkdir -p $GOPATH/src/github.com/prometheus
-cd $GOPATH/src/github.com/prometheus
-git clone https://github.com/prometheus/prometheus.git
+mkdir -p $GOPATH/src/prometheus
+cd $GOPATH/src/prometheus
+git clone https://github.com/prometheus/prometheus.git $GOPATH/src/prometheus
 cd prometheus/
+make assets
 make build
-
+make npm_licenses
 
 
 https://www.servicemesher.com/blog/prometheus-monitor-k8s-2/
