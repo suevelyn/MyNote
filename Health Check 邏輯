@@ -296,3 +296,36 @@ https://blog.csdn.net/wen328/article/details/108165679
 //時序資料庫
 https://db-engines.com/en/ranking/time+series+dbms
 https://github.com/prometheus-junkyard/tsdb/tree/master/docs/format
+
+###########################glusterfs######################################
+kubectl get pods -n kube-system
+
+$ kubectl label node k8s-node-2-12 storagenode=glusterfs 
+$ kubectl label node k8s-node-2-13 storagenode=glusterfs
+$ kubectl label node k8s-node-2-14 storagenode=glusterfs
+
+sudo iptables -I INPUT 1 -p tcp --dport 2222 -j ACCEPT
+sudo iptables -I INPUT 1 -p tcp --dport 24007 -j ACCEPT
+sudo iptables -I INPUT 1 -p tcp --dport 24008 -j ACCEPT
+sudo iptables -I INPUT 1 -p tcp --dport 49152:49251 -j ACCEPT
+# Load kernel modules
+sudo modprobe dm_snapshot
+sudo modprobe dm_thin_pool
+sudo modprobe dm_mirror
+
+sudo apt-get install glusterfs-client
+glusterfs --version
+git clone https://github.com/gluster/gluster-kubernetes.git
+cp topology.json.sample topology.json
+
+
+
+
+
+
+
+
+
+
+
+
