@@ -320,6 +320,36 @@ cp topology.json.sample topology.json
 
 
 
+sudo apt install software-properties-common -y
+
+wget -O- https://download.gluster.org/pub/gluster/glusterfs/3.12/rsa.pub | apt-key add -
+
+sudo add-apt-repository ppa:gluster/glusterfs-3.12
+
+sudo apt install glusterfs-server -y
+
+sudo systemctl start glusterd
+sudo systemctl enable glusterd
+
+sudo nano/etc/hosts
+
+192.168.1.206 gfs01
+192.168.1.207 gfs02
+192.168.1.208 gfs03
+
+sudo gluster peer probe gfs02
+
+$ kubectl label node k8s-node-2-12 storagenode=glusterfs 
+
+$ kubectl label node k8s-node-2-13 storagenode=glusterfs
+
+$ kubectl label node k8s-node-2-14 storagenode=glusterfs
+
+glusterfs-daemonset.yaml
+
+
+kubectl create namespace storage
+./gk-deploy -g --user-key MyUserStrongKey --admin-key MyAdminStrongKey -l /tmp/heketi_deployment.log -v topology.json -n storage
 
 
 
